@@ -1,11 +1,16 @@
+@font-face{
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  src: local('SourceSansPro-Light'), url('fonts/SourceSansPro-Light'), format('ttf');
+}
 
-body, html { 
-    background: url('../assets/images/vote.jpg') no-repeat center center fixed; 
+
+body{ 
+    background: url('../assets/images/vote.png') no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    box-shadow: 2px 2px 10px #999;
     margin: 0;
     padding: 0;
     font-family: 'Open Sans', sans-serif;
@@ -23,7 +28,7 @@ body, html {
   .mobile-screen{
     position: absolute;
     margin: auto;
-    top: 0; left: 0; bottom: 0; right: 0;
+    top: 35px; left: 0; bottom: 0; right: 0;
     width: 300px;
     height: 500px;
     background: rgba(3,3,3,.7);
@@ -38,8 +43,9 @@ body, html {
     height: auto;
     background: rgba(3,3,3,.1);
   }
-  
-  h1{
+
+
+h1{
     margin: 0;
     padding: 10px 0;
     text-align: center;
@@ -48,30 +54,48 @@ body, html {
     color: rgba(255,255,255,.5);
   }
 
-.logo{
-    position: relative;
-    top: 30px;
-    width: 150px;
-    height: 150px;
-    margin: auto;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    -webkit-transition: all .2s ease-in-out;
-    -moz-transition: all .2s ease-in-out;
-    -o-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
-  }
-  
+
   form{
     position: absolute;
     bottom: 60px;
     width: 100%;
   }
 
-  /* Create account page */
 
+.logo{
+  margin: 1.5% 25% 0 25%;
+}
+
+
+.logo h1{
+  margin: 0 25% 0 38%;
+  text-align: center;
+  color: #333;
+  font-size: 2.5rem;
+  border: 3px solid; 
+  border-color: rgb(35, 61, 247);
+  width: 20%;
+  border-radius: 4px;
+
+}
+
+.logo h1:hover{
+
+  border-radius: 4px;
+  box-shadow: 1 0 0 1px rgba(35, 61, 247,.2); 
+  transition: all 400ms ease-in-out;
+
+}
+
+
+#logo-image img{
+  width: 1.8rem;
+  padding: 0;
+}
+
+
+
+  /* Create account page */
 
   #signup-form { 
       padding-bottom: 20%;
@@ -94,7 +118,7 @@ body, html {
     border: none;
     border-left: 5px solid;
     background: none;
-    border-color: rgb(225, 40, 54);
+    border-color: rgb(35, 61, 247);
     color: #fff;
     font-weight: 300;
     font-size: 18px;
@@ -106,7 +130,7 @@ body, html {
   
   input:focus{
     outline: 0;
-    background: rgba(225, 40, 54,.2);
+    background: rgba(35, 61, 247,.2);
     border-radius: 20px;
     border-color: transparent;
   }
@@ -140,7 +164,7 @@ body, html {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     background: rgba(0,0,0,.2);
-    border-bottom: 2px solid  rgb(225, 40, 54);
+    border-bottom: 2px solid  rgb(35, 61, 247);
   }
   
   .option a{
@@ -170,8 +194,9 @@ body, html {
   }
 
   #usualUser {
-    margin-top: 80%;
+    margin-top: 120%;
     margin-right: 25%;
+  
   }
   /* Change colors container */
   .change-colors-container{
