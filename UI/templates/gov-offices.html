@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/gov-offices.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/icons/vote-yea.png">
+    <title>Politico | Government Offices</title>
+</head>
+
+<body>
+    <nav class="nav-container">
+        <header class="nav-header">
+            <div class="navbar">
+                <div class="navbar-image">
+                    <h1>
+                        <a href="../index.html">
+                            P<span id="logo-image"><img src="../assets/icons/vote-yea.svg" /></span>litico
+                        </a>
+                    </h1>
+
+                </div>
+
+                <div class="list-container">
+                    <ul class="item-list">
+                        <li class="navbar-item"><a href="../templates/home.html">Home</a></li>
+                        <li class="navbar-item"><a href="http://">About</a></li>
+                        <li class="navbar-item"><a href="http://">News</a></li>
+                        <li class="navbar-item"><a href="../templates/gov-offices.html">Government Offices</a></li>
+                        <li class="navbar-item"><a href="http://">Contact Us</a></li>
+                        <li class="navbar-item"><a href="http://">My Profile</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </header>
+    </nav>
+
+    <div class="main-container">
+        <h2>Are you interested in running for a government office ?</h2>
+        <form action="">
+            <div class="candidate-info">
+                <label for="canditate-name">Full Name:</label>
+                <input type="text" name="name" id="">
+            </div>
+
+            <div class="candidate-info">
+                <label for="party-name">Political Party:</label>
+                <input type="text" id="">
+            </div>
+
+            <div class="candidate-info">
+                <label for="canditate-name">Available Offices:</label>
+                <select name="offices" id="">
+                    <option value="">---</option>
+                    <option value="president">President</option>
+                    <option value="senate-president">President of Senate</option>
+                    <option value="state-spokesperson">State Spokesperson</option>
+                    <option value="state-auditor">State Auditor</option>
+                </select>
+            </div>
+
+            <div class="candidate-info">
+                    <label for="party-name">Upload your image:</label>
+                    <input type="file" name="pic" id="" accept="image/*">
+                </div>
+            <button type="submit" role="button">Send</button>
+        </form>
+    </div>
+</body>
+</html>
