@@ -17,8 +17,10 @@ const createOffice = document.getElementById('createOffice').addEventListener('c
 
 const editParty = document.getElementById('editParty').addEventListener('click', () => {
     dashboard.innerHTML = '<object height="600" width="1050" type="text/html" data="edit-party.html"></object>'
+    pokeDiv();
 });
 
-let editor = document.getElementsByClassName('table-data'); 
-editor.isContentEditable; 
-editor.contentEditable = true;
+const deleteParty = document.getElementById('deleteParty').addEventListener('click', () => {
+    dashboard.innerHTML = '<object height="600" width="1050" type="text/html" data="delete-party.html"></object>'
+});
+
