@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" type="image/x-icon" href="../assets/icons/vote-yea.png">
-    <link rel="stylesheet" href="../css/news.css">
-    <title> Politico | News </title>
+    <link rel="stylesheet" href="../css/contact.css">
+    <title> Politico | Contact Us </title>
 </head>
 
 <body>
+
     <nav class="nav-container">
         <header class="nav-header">
-            <di v class="navbar">
+            <div class="navbar">
                 <div class="navbar-image">
                     <h1>
                         <a href="../index.html">
@@ -30,38 +31,41 @@
                         <li class="navbar-item"><a href="./news.html">News</a></li>
                         <li class="navbar-item"><a href="./gov-offices.html">Government Offices</a></li>
                         <li class="navbar-item"><a href="./contact.html">Contact Us</a></li>
-                        <li class="navbar-item"><a href="./profile.html">My Profile</a></li>
+                        <li class="navbar-item"><a href="./profile.html"> My Profile</a></li>
                     </ul>
                 </div>
 
-                </div>
+            </div>
         </header>
     </nav>
 
-    <div class="main-container">
-
-        <p>Welcome to Politico, you can press the <span>All Parties</span> button to view the
-            list of all political parties and the <span>All Candidates</span> button to view
-            all candidates running for different offices and vote.
-        </p>
 
 
-        <div class="controlls">
-            <button type="button" id="parties-button">All Parties</button>
-            <button type="button" id="candidates-button">All Candidates</button>
-        </div>
+    <div class="content-container">
+        <p>We would love to hear from you </p>
+
+        <form action="">
+            <div class="candidate-info">
+                <label for="canditate-name">Full Name:</label>
+                <input type="text" name="name" id="">
+            </div>
+
+            <div class="candidate-info">
+                <label for="party-name">Your Email:</label>
+                <input type="email" id="">
+            </div>
 
 
-        <div id="parties-info">
-
-        </div>
+            <div class="candidate-info">
+                <label for="party-name">Subject:</label>
+                <textarea name="" id="" cols="4" rows="5"></textarea>
+            </div>
+            <button type="submit" role="button">Send</button>
+        </form>
 
     </div>
-
-    <script type="text/javascript" src="../javascript/partiesInfo.js"></script>
-    
     <footer>
-        <p> Politico  &copy; 2018. All Rights Reserved</p>
+        <p> Politico &copy; 2018. All Rights Reserved</p>
     </footer>
 </body>
 
