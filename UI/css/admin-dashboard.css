@@ -44,7 +44,7 @@ html {
     .dashboard-nav {
         margin-top: -24%;
         position: fixed;
-        height: 700px;
+        height: 704px;
         width: 270px;
         border: 1px solid blue;
         background-color: rgba(10, 10, 10, .1);

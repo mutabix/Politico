@@ -17,7 +17,6 @@ const createOffice = document.getElementById('createOffice').addEventListener('c
 
 const editParty = document.getElementById('editParty').addEventListener('click', () => {
     dashboard.innerHTML = '<object height="600" width="1050" type="text/html" data="edit-party.html"></object>'
-    pokeDiv();
 });
 
 const deleteParty = document.getElementById('deleteParty').addEventListener('click', () => {

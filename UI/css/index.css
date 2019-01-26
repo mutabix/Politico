@@ -19,7 +19,7 @@ body {
     background-size: cover;
     margin: 0;
     padding: 0;
-    font-family: 'Open Sans', sans-serif;
+    /* font-family: Ubuntu, sans-serif; */
   }
 
   ::selection {
@@ -56,6 +56,7 @@ body {
 
   .header h1 {
     color: #fff;
+    font-family: Ubuntu, sans-serif;
   }
 
 
@@ -82,10 +83,11 @@ body {
 
 
   .logo h1 {
-    margin: 1% 25% 1% 38%;
+    margin: 5% 25% 1% 38%;
+    font-weight: bold;
     text-align: center;
     color: #333;
-    font-size: 2.5rem;
+    font-size: 1.7rem;
     border: 3px solid;
     border-color: rgb(10, 10, 10);
     width: 20%;
@@ -97,6 +99,8 @@ body {
     /* Safari */
     transform: rotate(-20deg);
     /* Standard syntax */
+    font-family: Ubuntu, sans-serif;
+    /* padding: 10px 10px 10px;   */
 
   }
 
@@ -132,7 +136,7 @@ body {
 
   input,
   .auth-btn {
-    font-family: 'Open Sans', sans-serif;
+    font-family: Ubuntu, sans-serif;
     position: relative;
     display: block;
     margin: 20px auto;
@@ -198,7 +202,7 @@ body {
 
   .option a {
     color: #fff;
-    font-family: 'Open Sans', sans-serif;
+    font-family: Ubuntu, sans-serif;
   }
 
 
@@ -220,7 +224,8 @@ body {
     text-align: center;
     font-size: 12px;
     font-weight: 100;
-    font-size: 0.8rem;
+    font-size: 0.8rem;  
+
   }
 
   /* Change colors container */
