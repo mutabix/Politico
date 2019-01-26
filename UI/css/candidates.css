@@ -13,8 +13,9 @@ body {
         width: 80%;
         padding: 1px;
         overflow-y: hidden;
-        border: 2px solid;
+        border:  1px solid rgba(0,0,0,0.25);
         border-radius: 12px;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 
 
     }
@@ -54,4 +55,24 @@ body {
         border-radius: 50%;
     }
 
+    .data button {
+        font-family: Ubuntu, sans-serif;
+        font-size: 19px; 
+        margin: 0 10px 0 12px;
+        height: 30px; 
+        border-radius: 9px;
+        border: 1px solid black;
+        cursor: pointer;
+    }
+
+    #vote{
+        background: green;
+        color: white;
+        padding: 0 18px 0  18px;
+    }
+
+    #unvote{
+        background: rgb(255, 60, 0);
+        color: black;
+    }
 }
