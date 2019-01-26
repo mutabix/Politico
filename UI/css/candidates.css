@@ -9,19 +9,18 @@ body {
 
     table {
         height: 500px;
-        position: absolute;
         margin: 2% 0% 0% 5%;
         width: 80%;
-        padding: 8px;
+        padding: 1px;
         overflow-y: hidden;
-        border-radius: 50%;
+        border: 2px solid;
+        border-radius: 12px;
 
 
     }
 
     .table-head {
         background: rgba(10, 10, 10, .2);
-        border: 2px solid blue;
     }
 
     .table-head th {
@@ -31,18 +30,28 @@ body {
     }
 
     .data-head td {
-        padding-left: 20px;
+        padding-left: 10px;
         border-bottom: 2px solid green;
         font-family: Ubuntu, sans-serif;
     }
 
     .data-head {
         background: #2980B9;
+        padding: 0 0 0 0;
     }
+
 
     .data-head>td:nth-child(odd) {
         background: #85C1E9;
     }
 
+    .data-head img{
+        border: 2px solid green;
+        margin-left: 10px;
+        width: 100px;
+        height: 100px;
+        margin-bottom: -40px;
+        border-radius: 50%;
+    }
 
 }
