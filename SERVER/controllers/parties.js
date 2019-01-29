@@ -49,9 +49,8 @@ class Party {
         party.name = req.body.name;
         party.hqAddress = req.body.hqAddress;
         party.logoUrl = req.body.logoUrl;
-        party.send(party);
 
-
+        res.send(party);
     }
 
     
