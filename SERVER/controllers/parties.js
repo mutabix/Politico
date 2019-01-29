@@ -20,12 +20,13 @@ class Party{
 
 
     static getOneParty(req, res){
-        const party = parties.find(p => p.id === parseInt(req.param.id)); 
+        const party = parties.find(p => p.id === parseInt(req.params.id)); 
 
         if(!party){
-            return res.status(404).send('Party not found');
-        };
-    }
+            res.status(404).send('Party not found');
+        }
+        res.send(party);
+    };
 
     
 }
