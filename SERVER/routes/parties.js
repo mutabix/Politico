@@ -8,9 +8,9 @@ const partyRouter = express.Router();
 partyRouter.use(json());
 
 
-partyRouter.post('/api/v1/parties', Party.createParty);
+partyRouter.post('/api/v1/parties/', Party.createParty);
 
-partyRouter.get('/api/v1/parties', Party.getAllParties);
+partyRouter.get('/api/v1/parties/', Party.getAllParties);
 
 partyRouter.get('/api/v1/parties/:id', Party.getOneParty);
 
