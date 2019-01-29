@@ -1,0 +1,38 @@
+{
+  "name": "Politico",
+  "version": "1.0.0",
+  "description": "Politico is an elections app which will help electoral bodies, candidates and voters to prepare and execute successful elections.",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "joi": "^14.3.1"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "babel-watch": "^2.0.8",
+    "eslint": "^5.12.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.15.0",
+    "mocha": "^5.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "babel-watch  ./SERVER/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Moise1/Politico.git"
+  },
+  "keywords": [
+    "politico",
+    "api",
+    "election app"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Moise1/Politico/issues"
+  },
+  "homepage": "https://github.com/Moise1/Politico#readme"
+}
