@@ -12,9 +12,9 @@ partyRouter.post('/api/v1/parties', Party.createParty);
 
 partyRouter.get('/api/v1/parties', Party.getAllParties);
 
-// partyRouter.get('/api/v1/parties/:id', Party.getOneParty);
+partyRouter.get('/api/v1/parties/:id', Party.getOneParty);
 
-// partyRouter.patch('/api/v1/parties/:id', Party.updateParty);
+partyRouter.patch('/api/v1/parties/:id', Party.updateParty);
 
 // partyRouter.delete('/api/v1/parties/:id', Party.deleteUser);
 
