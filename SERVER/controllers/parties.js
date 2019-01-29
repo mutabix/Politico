@@ -50,7 +50,11 @@ class Party {
         party.hqAddress = req.body.hqAddress;
         party.logoUrl = req.body.logoUrl;
         party.send(party);
+
+
     }
+
+    
 }
 
 export default Party;
