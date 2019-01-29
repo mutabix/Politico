@@ -20,7 +20,10 @@ class Party{
 
 
     static getOneParty(req, res){
-        
+        const party = parties.find(p => p.id === parseInt(req.param.id)); 
+        if(!party){
+            return res.status(404).send('Party not found');
+        }
     }
 }
 
