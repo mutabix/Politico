@@ -1,9 +1,5 @@
 import Joi from 'joi';
 import parties from '../models/parties';
-import {
-    resolveSoa
-} from 'dns';
-
 class Party {
 
     // Create a party
@@ -53,7 +49,19 @@ class Party {
         res.send(party);
     }
 
+
+    // Delete Party
+
+    static deleteParty(req, res) {
+        const party = parties.find(p => p.id === parseInt(req.params.id));
+        if (!party) {
+            return res.status(400).send('Party not found');
+        };
     
+        const index = parties.indexOf(party);
+        parties.splice(index, 1);
+        res.send(party);
+    }
 }
 
 export default Party;
