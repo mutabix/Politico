@@ -30,25 +30,27 @@ class Party {
     // Get all Parties 
 
     static getAllParties(req, res) {
-        res.send(parties);
+        res.send({
+            status: 200, 
+            data: parties
+
+        });
     }
 
 
     // Get one party
     static getOneParty(req, res) {
         const party = parties.find(p => p.id === parseInt(req.params.id));
-        if (!party) {
-            return res.send({
+        if (!party) return res.send({
                 status: 404,
                 error: `Party with ID ${req.params.id} is not found!`
             });
-        }
+        res.send({
+            status: 200,
+            data: [party]
+        })
+        
 
-        const schema = {
-            name: Joi.string().min(3).max(10).required(),
-            hqAddress: Joi.string().min(3).max(10).required(),
-            logoUrl: Joi.string().required()
-        }
     }
 
 
@@ -78,7 +80,7 @@ class Party {
 
         res.send({
             status: 200,
-            data: party
+            data: [party]
         });
     }
 
@@ -92,7 +94,10 @@ class Party {
         
             const index = parties.indexOf(party);
             parties.splice(index, 1);
-            res.send(party);
+            res.send({
+                status: 200, 
+                data: parties
+            });
     }
     
 
