@@ -54,7 +54,6 @@ class Party {
 
     static updateParty(req, res) {
 
-
         const party = parties.find(p => p.id === parseInt(req.params.id));
         if (!party) {
             return res.send({
@@ -83,6 +82,20 @@ class Party {
         });
     }
 
+    static deleteParty(req, res) {
+      
+        const party = parties.find(p => p.id === parseInt(req.params.id));
+            if (!party) return res.send({
+                    status: 404, 
+                    error: `Party with ID ${req.params.id} is not found!`
+                });
+        
+            const index = parties.indexOf(party);
+            parties.splice(index, 1);
+            res.send(party);
+    }
+    
+
 }
 
 function partyValidator(party) {
@@ -100,5 +113,5 @@ function partyValidator(party) {
 
     return Joi.validate(party, schema, options);
 }
-
+    
 export default Party;
