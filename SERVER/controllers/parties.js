@@ -1,8 +1,9 @@
 import Joi from 'joi';
-import parties from '../models/parties'; 
+import parties from '../models/parties';
+class Party {
 
-class Party{
-    static createParty(req, res){
+    // Create a party
+    static createParty(req, res) {
 
         const {error} = partyValidator(req.body); 
 
@@ -12,9 +13,9 @@ class Party{
         })
 
         const party = {
-            id: parties.length +1, 
-            name: req.body.name, 
-            hqAddress: req.body.hqAddress, 
+            id: parties.length + 1,
+            name: req.body.name,
+            hqAddress: req.body.hqAddress,
             logoUrl: req.body.logoUrl
         };
         parties.push(party);
@@ -24,12 +25,13 @@ class Party{
         });
     }
 
-    static getAllParties(req, res){
+    // Get all Parties 
+
+    static getAllParties(req, res) {
         res.send(parties);
     }
 
 }
-
 
 function partyValidator(party){
 
