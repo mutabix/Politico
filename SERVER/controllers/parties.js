@@ -96,7 +96,9 @@ class Party {
             parties.splice(index, 1);
             res.send({
                 status: 200, 
-                data: parties
+                data: [{
+                    message: `${party.name}  of ID  ${req.params.id} is successfully deleted!`
+                }]
             });
     }
     
