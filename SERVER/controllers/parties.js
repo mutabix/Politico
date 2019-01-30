@@ -4,6 +4,13 @@ import parties from '../models/parties';
 class Party{
     static createParty(req, res){
 
+        const {error} = partyValidator(req.body); 
+
+        if(error)return res.send({
+            status: 404, 
+            error: error.details[0].message
+        })
+
         const party = {
             id: parties.length +1, 
             name: req.body.name, 
@@ -11,17 +18,26 @@ class Party{
             logoUrl: req.body.logoUrl
         };
         parties.push(party);
-        res.send(parties);
+        res.send({
+            status: 200, 
+            data: parties
+        });
     }
 
     static getAllParties(req, res){
         res.send(parties);
     }
 
+}
 
-    static getOneParty(req, res){
-        
+
+function partyValidator(party){
+    const schema = {
+        name: Joi.string().min(3).max(10).required(),
+        hqAddress: Joi.string().min(3).max(10).required(),
+        logoUrl: Joi.string().required()
     }
+    return Joi.validate(party, schema);
 }
 
 export default Party;
