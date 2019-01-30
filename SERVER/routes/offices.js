@@ -7,10 +7,7 @@ const officeRouter = express.Router();
 
 officeRouter.use(json());
 
-officeRouter.get('/api/v1/offices', Office.getAllOffices); 
-
-officeRouter.post('/api/v1/offices', Office.createOffice);
-
+officeRouter.get('/api/v1/offices', Office.getAllOffices);
 
 
 export default officeRouter;

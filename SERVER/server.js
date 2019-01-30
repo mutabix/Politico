@@ -8,7 +8,6 @@ app.use(express.urlencoded({extended: false}));
 
 app.use(express.json()); 
 
-// Routes
 app.use(partyRouter);
 app.use(officeRouter);
 

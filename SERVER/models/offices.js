@@ -1,13 +1,14 @@
-export default[
 
-    {  id: 1,
-       type: 'Legislative',
-       name: 'President'
+export default [
+    {
+       id: 1,
+       type: 'Legislative', 
+       name: 'President',
     }, 
 
-    {  id: 2,
-        type: 'Federal',
-        name: 'Permanent Secretary'
-     }
-
-];
+    {
+        id: 2, 
+        type: 'State', 
+        name: 'Permanent Secretary',
+    }
+]
