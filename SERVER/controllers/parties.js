@@ -38,7 +38,7 @@ function partyValidator(party){
         name: Joi.string().min(3).max(10).required(),
         hqAddress: Joi.string().min(3).max(10).required(),
         logoUrl: Joi.string().required()
-    
+    }
     return Joi.validate(party, schema);
 }
 
