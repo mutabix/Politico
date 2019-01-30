@@ -5,6 +5,13 @@ class Party {
     // Create a party
     static createParty(req, res) {
 
+        const {error} = partyValidator(req.body); 
+
+        if(error)return res.send({
+            status: 404, 
+            error: error.details[0].message
+        })
+
         const party = {
             id: parties.length + 1,
             name: req.body.name,
@@ -12,7 +19,10 @@ class Party {
             logoUrl: req.body.logoUrl
         };
         parties.push(party);
-        res.send(parties);
+        res.send({
+            status: 200, 
+            data: parties
+        });
     }
 
     // Get all Parties 
@@ -21,47 +31,15 @@ class Party {
         res.send(parties);
     }
 
+}
 
-    // Get one party
-    static getOneParty(req, res) {
-        const party = parties.find(p => p.id === parseInt(req.params.id));
-        if (!party) {
-            return res.status(404).send('Party not found');
-        }
-
-        res.send(party);
-    }
-
-
-    static updateParty(req, res) {
-
-        const party = parties.find(p => p.id === parseInt(req.params.id));
-        if (!party) {
-            return res.status(400).send('Party not found');
-        }
-
-        //Update Party
-
-        party.name = req.body.name;
-        party.hqAddress = req.body.hqAddress;
-        party.logoUrl = req.body.logoUrl;
-
-        res.send(party);
-    }
-
-
-    // Delete Party
-
-    static deleteParty(req, res) {
-        const party = parties.find(p => p.id === parseInt(req.params.id));
-        if (!party) {
-            return res.status(400).send('Party not found');
-        };
+function partyValidator(party){
+    const schema = {
+        name: Joi.string().min(3).max(10).required(),
+        hqAddress: Joi.string().min(3).max(10).required(),
+        logoUrl: Joi.string().required()
     
-        const index = parties.indexOf(party);
-        parties.splice(index, 1);
-        res.send(party);
-    }
+    return Joi.validate(party, schema);
 }
 
 export default Party;
