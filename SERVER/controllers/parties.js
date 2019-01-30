@@ -6,6 +6,13 @@ class Party {
     // Create a party
     static createParty(req, res) {
 
+        const {error} = partyValidator(req.body); 
+
+        if(error)return res.send({
+            status: 404, 
+            error: error.details[0].message
+        })
+
         const party = {
             id: parties.length + 1,
             name: req.body.name,
@@ -13,7 +20,10 @@ class Party {
             logoUrl: req.body.logoUrl
         };
         parties.push(party);
-        res.send(parties);
+        res.send({
+            status: 200, 
+            data: parties
+        });
     }
 
     // Get all Parties 
@@ -21,6 +31,8 @@ class Party {
     static getAllParties(req, res) {
         res.send(parties);
     }
+
+}
 
 
     // Get one party
@@ -33,12 +45,8 @@ class Party {
             });
         }
 
-        res.send(party);
-    }
-
 
     static updateParty(req, res) {
-
 
         const party = parties.find(p => p.id === parseInt(req.params.id));
         if (!party) {

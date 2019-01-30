@@ -16,7 +16,7 @@ partyRouter.get('/api/v1/parties/:id', Party.getOneParty);
 
 partyRouter.patch('/api/v1/parties/:id', Party.updateParty);
 
-// partyRouter.delete('/api/v1/parties/:id', Party.deleteUser);
+partyRouter.delete('/api/v1/parties/:id', Party.deleteParty);
 
 
 export default partyRouter;
