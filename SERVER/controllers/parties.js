@@ -1,5 +1,6 @@
 import Joi from 'joi';
 import parties from '../models/parties';
+
 class Party {
 
     // Create a party
@@ -33,19 +34,61 @@ class Party {
 
 }
 
-function partyValidator(party){
 
+    // Get one party
+    static getOneParty(req, res) {
+        const party = parties.find(p => p.id === parseInt(req.params.id));
+        if (!party) {
+            return res.send({
+                status: 404, 
+                error: `Party with ID ${req.params.id} is not found!`
+            });
+        }
+
+
+    static updateParty(req, res) {
+
+        const party = parties.find(p => p.id === parseInt(req.params.id));
+        if (!party) {
+            return res.send({
+                status: 404, 
+                error: `Party with  id ${req.params.id} is not found!`
+            });
+        }
+
+        //Update Party
+
+        const {error} = partyValidator(req.body);
+        if(error)return res.send({
+            status: 404,
+            error: error.details[0].message
+        })
+        
+        party.name = req.body.name;
+        party.hqAddress = req.body.hqAddress;
+        party.logoUrl = req.body.logoUrl;
+
+        res.send({
+            status: 200, 
+            data: party
+        });
+    }
+
+}
+
+function partyValidator(party){
     const schema = {
         name: Joi.string().min(3).max(10).required(),
-        hqAddress: Joi.string().min(3).max(10).required(),
-        logoUrl: Joi.string().required()
-    }
+        hqAddress:  Joi.string().min(3).max(10).required(),
+        logoUrl:  Joi.string().required(),
+    }; 
 
     const options = {
         language: {
             key: '{{key}} '
         }
     }
+
     return Joi.validate(party, schema, options);
 }
 
