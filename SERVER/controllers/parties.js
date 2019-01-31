@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import parties from '../models/parties';
+import parties from '../models/party';
 class Party {
 
     // Create a party

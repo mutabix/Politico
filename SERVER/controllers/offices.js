@@ -1,6 +1,6 @@
 
 import Joi from 'joi'; 
-import offices from '../models/offices'; 
+import offices from '../models/office'; 
 
 
 class Office{
