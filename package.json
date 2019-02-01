@@ -17,6 +17,7 @@
     "chai": "^4.2.0",
     "chai-http": "^4.2.1",
     "coveralls": "^3.0.2",
+    "dotenv": "^6.2.0",
     "eslint": "^5.12.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.15.0",
@@ -26,7 +27,7 @@
   },
   "scripts": {
     "start": "babel-watch  ./SERVER/server.js",
-    "test": "NODE_ENV=test nyc --reporter=text --reporter=lcov mocha --timeout 1500 --require babel-polyfill --require babel-register SERVER/tests/**/*.test.js --exit", 
+    "test": "NODE_ENV=test nyc --reporter=text --reporter=lcov mocha --timeout 1500 --require babel-polyfill --require babel-register SERVER/tests/**/*.test.js --exit",
     "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
