@@ -1,6 +1,6 @@
 import express from 'express'; 
 import { Router, json } from 'express'; 
-import Party from './parties'; 
+import Party from '../../../controllers/parties'; 
 
 
 const partyRouter = express.Router();   

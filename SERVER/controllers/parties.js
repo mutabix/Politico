@@ -31,7 +31,7 @@ class Party {
 
     static getAllParties(req, res) {
         res.send({
-            status: 200, 
+            status: 200,
             data: parties
 
         });
@@ -41,22 +41,21 @@ class Party {
     // Get one party
     static getOneParty(req, res) {
         const party = parties.find(p => p.id === parseInt(req.params.id));
-        if (!party) return res.send({
+        if (!party)return res.send({
                 status: 404,
                 error: `Party with ID ${req.params.id} is not found!`
             });
         res.send({
             status: 200,
             data: [party]
-        })
-        
-
+        });
     }
 
 
     static updateParty(req, res) {
 
         const party = parties.find(p => p.id === parseInt(req.params.id));
+    
         if (!party) {
             return res.send({
                 status: 404,
@@ -85,23 +84,23 @@ class Party {
     }
 
     static deleteParty(req, res) {
-      
+
         const party = parties.find(p => p.id === parseInt(req.params.id));
-            if (!party) return res.send({
-                    status: 404, 
-                    error: `Party with ID ${req.params.id} is not found!`
-                });
-        
-            const index = parties.indexOf(party);
-            parties.splice(index, 1);
-            res.send({
-                status: 200, 
-                data: [{
-                    message: `${party.name}  of ID  ${req.params.id} is successfully deleted!`
-                }]
-            });
+        if (!party) return res.send({
+            status: 404,
+            error: `Party with ID ${req.params.id} is not found!`
+        });
+
+        const index = parties.indexOf(party);
+        parties.splice(index, 1);
+        res.send({
+            status: 200,
+            data: [{
+                message: `${party.name}  of ID  ${req.params.id} is successfully deleted!`
+            }]
+        });
     }
-    
+
 
 }
 
@@ -120,5 +119,5 @@ function partyValidator(party) {
 
     return Joi.validate(party, schema, options);
 }
-    
+
 export default Party;

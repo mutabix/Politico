@@ -1,6 +1,6 @@
 import express from 'express'; 
 import {Router, json} from 'express'; 
-import Office from './offices';
+import Office from '../../../controllers/offices';
 
 
 const officeRouter = express.Router(); 

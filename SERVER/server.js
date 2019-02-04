@@ -1,7 +1,7 @@
 
 import express from 'express'; 
-import partyRouter from './routes/parties';
-import officeRouter from './routes/offices';
+import partyRouter from './routes/api/v1/parties';
+import officeRouter from './routes/api/v1/offices';
 
 const app = express(); 
 app.use(express.urlencoded({extended: false}));
