@@ -9,12 +9,12 @@ chai.use(chaiHttp);
 
 
 
-describe('Political Parties', ()=>{
+describe('Offices', ()=>{
 
-    it('Displays all political parties', (done)=>{
+    it('Displays all Government Offices', (done)=>{
         chai 
         .request(app) 
-        .get('/api/v1/parties')
+        .get('/api/v1/offices')
         .end((err, res) =>{
             res.body.should.have.property("status").eql(200);
             res.body.should.have.property("data").that.is.an('array');
