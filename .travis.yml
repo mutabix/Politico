@@ -1,6 +1,6 @@
 env: 
     global: 
-        cc_test_result: CC_TEST_REPORTER
+      - CC_TEST_REPORTER=487491f038204b81dd46087001b413c759fc57f52b4ea5d0abedf02b593cec03
 
 language: node_js 
 
@@ -12,8 +12,9 @@ cache:
 
 addons:
   code_climate: 
-    repo_token:
-      secure: REPO_TOKEN
+    repo_token: 370e44c673160ea92ed108caabd23c36f2dfc7cc
+    
+
 
 before_script:
     - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-netcgo-linux-amd64 > ./cc-test-reporter
