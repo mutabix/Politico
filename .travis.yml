@@ -1,6 +1,6 @@
 env: 
     global: 
-        cc_test_result: CC_TEST_RESULT 
+        cc_test_result: CC_TEST_REPORTER
 
 language: node_js 
 
