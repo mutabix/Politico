@@ -23,7 +23,7 @@ class Party {
         parties.push(party);
         res.send({
             status: 200,
-            data: parties
+            data: [party]
         });
     }
 
