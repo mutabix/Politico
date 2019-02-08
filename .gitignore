@@ -8,6 +8,8 @@ coverage/
 #env config 
 .env 
 
+#node_modules  
+node_modules/
 #vs code 
 vscode/
 
