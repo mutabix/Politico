@@ -1,5 +1,5 @@
 {
-  "name": "Politico",
+  "name": "politico",
   "version": "1.0.0",
   "description": "Politico is an elections app which will help electoral bodies, candidates and voters to prepare and execute successful elections.",
   "main": "server.js",
@@ -28,7 +28,7 @@
   "engines": {
     "node": "10.15.0"
   },
-  
+
   "scripts": {
     "start": "babel-watch  ./SERVER/server.js",
     "test": "NODE_ENV=test nyc --reporter=text --reporter=lcov mocha --timeout 1500 --require babel-polyfill --require babel-register SERVER/tests/**/*.test.js --exit",
