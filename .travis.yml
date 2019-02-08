@@ -6,7 +6,7 @@ language: node_js
 
 node_js: 
   - "stable" 
-  
+
 cache: 
   directories: 
     - "node_modules" 
@@ -23,7 +23,7 @@ before_script:
     - ./cc-test-reporter before-build
 
 after_script:
-    # - coveralls < ./coverage/lcov.info
+    
     - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 
 script:
