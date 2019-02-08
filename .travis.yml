@@ -1,18 +1,19 @@
-# env: 
-#     global: 
-#       - CC_TEST_REPORTER=487491f038204b81dd46087001b413c759fc57f52b4ea5d0abedf02b593cec03
+env: 
+    global: 
+      - CC_TEST_REPORTER=487491f038204b81dd46087001b413c759fc57f52b4ea5d0abedf02b593cec03
 
 language: node_js 
 
 node_js: 
   - "stable" 
+  
 cache: 
   directories: 
     - "node_modules" 
 
-# addons:
-#   code_climate: 
-#     repo_token: 370e44c673160ea92ed108caabd23c36f2dfc7cc
+addons:
+  code_climate: 
+    repo_token: 370e44c673160ea92ed108caabd23c36f2dfc7cc
     
 
 
