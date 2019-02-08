@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.com/Moise1/Politico.svg?branch=develop)](https://travis-ci.com/Moise1/Politico)
-[![Coverage Status](https://coveralls.io/repos/github/Moise1/Politico/badge.svg?branch=develop)](https://coveralls.io/github/Moise1/Politico?branch=develop)
+[![Coverage Status](https://coveralls.io/repos/github/Moise1/Politico/badge.svg)](https://coveralls.io/github/Moise1/Politico)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/codeclimate/codeclimate/test_coverage)
 
