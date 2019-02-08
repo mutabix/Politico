@@ -5,11 +5,11 @@ env:
 language: node_js 
 
 node_js: 
-  - "stable" 
+  - "10.15.0" 
 
-cache: 
-  directories: 
-    - "node_modules" 
+# cache: 
+#   directories: 
+#     - "node_modules" 
 
 addons:
   code_climate: 
