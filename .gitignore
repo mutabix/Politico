@@ -12,7 +12,7 @@ coverage/
 node_modules/
 
 #vs code 
-vscode/
+.vscode/
 
 #git-old 
-git-old/
+.git-old/
