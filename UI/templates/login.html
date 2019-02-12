@@ -25,10 +25,17 @@
             <h1> Sign In </h1>
         </div>
 
-        <form id="login-form">
-            <input type="text" name="name" placeholder="Full name">
-            <input type="password" name="pass" placeholder="Password">
-            <a href="#" class="auth-btn" id="login-button">Sign in</a>
+        <form class="login-form">
+            <div class="input-fields">
+                <label for="name">User name
+                    <input type="text" name="name">
+                </label>
+                <label for="password">Password
+                    <input type="password" name="pass">
+                </label>
+            </div>
+
+            <button class="auth-btn"><a href="#" id="login-button">Sign in</a></button>
         </form>
 
         <div class="other-options">
