@@ -87,7 +87,7 @@ body {
     border-color: rgb(10, 10, 10);
     width: 20%;
     border-radius: 4px;
-    background-color: rgba(35, 61, 247, .7);
+    background-color: rgba(35, 61, 247);
     -ms-transform: rotate(-20deg);
     -webkit-transform: rotate(-20deg);
     transform: rotate(-20deg);

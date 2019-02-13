@@ -89,8 +89,11 @@
     }
 
     .content-container {
-        margin: 70px 0 0 70px;
+        position: absolute;
+        left: 14%; 
+        top: 30%;
     }
+
 
     .content-container  h3{
         font-family: Ubuntu, sans-serif; 
@@ -109,7 +112,7 @@
     .home-list {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap:5;
+        grid-gap: 20px;
     }
 
     footer {
