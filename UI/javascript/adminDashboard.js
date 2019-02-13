@@ -1,3 +1,4 @@
+
 const dashboard = document.getElementById('dashboard-info');
 
 const parties = document.getElementById('parties').addEventListener('click', () => {
@@ -22,4 +23,5 @@ const editParty = document.getElementById('editParty').addEventListener('click',
 const deleteParty = document.getElementById('deleteParty').addEventListener('click', () => {
     dashboard.innerHTML = '<object height="600" width="1050" type="text/html" data="delete-party.html"></object>'
 });
+
 

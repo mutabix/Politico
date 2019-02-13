@@ -28,16 +28,16 @@
         <form class="login-form">
                 <div class="input-fields">
                         <label for="name">User name
-                            <input type="text" name="name">
+                            <input type="text" id="name">
                         </label>
                         <label for="password">Password
-                            <input type="password" name="pass">
+                            <input type="password" id="password">
                         </label>
+                        <p id="wrongInput"></p>
                     </div>
-            <button class="auth-btn"><a href="#"  id="login-button">Sign in</a></button> 
+            <div class="auth-btn" onclick="formValidator()">Sign in</div> 
         </form>
     </div>
-
+    <script type="text/javascript" src="../javascript/adminLogin.js"></script>
 </body>
-
 </html>

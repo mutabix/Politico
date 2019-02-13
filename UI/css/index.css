@@ -115,7 +115,18 @@ body {
 
   /* Create account page */
 
+div.auth-btn {
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
 
+}
+
+#wrongInput{
+  color:  rgb(233, 78, 78); 
+  font-size: 15px;
+  font-family: Ubuntu, sans-serif;
+}
 
   input,
   .auth-btn {

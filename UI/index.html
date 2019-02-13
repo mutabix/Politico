@@ -29,23 +29,23 @@
             <div class="input-fields">
 
                 <label for="last-name"> Full name *
-                    <input type="text" name="name" required>
+                    <input type="text" id="fullName" required>
                 </label>
                 <label for="date-birth">Date of birth *
-                    <input type="text" placeholder="dd/mm/yy" required>
+                    <input type="text"  id="dateBirth" placeholder="dd/mm/yy" required>
                 </label>
                 <label for="location">Current Location *
-                    <input type="text" name="country" required>
+                    <input type="text" id="location" required>
                 </label>
-                <label for="first-name" required="true">Email *
-                    <input type="email" name="email required">
+                <label for="first-name">Email *
+                    <input type="email" id="email" required>
                 </label>
                 <label for="password">Password *
-                    <input type="password" name="pass" required>
+                    <input type="password" id="password" required>
                 </label>
-
+                <p id="wrongPwd"></p>
             </div>
-            <button class="auth-btn"><a href="#">Create Account </a></button>
+            <div class="auth-btn" onclick="formValidator()">Create Account</div>
         </form>
 
         <div class="other-options">
@@ -59,6 +59,7 @@
         </div>
 
     </div>
+    <script type="text/javascript" src="./javascript/signup.js"></script>
 </body>
 
 </html>
