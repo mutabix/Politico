@@ -45,12 +45,8 @@
         border-radius: 4px;
         background-color: rgba(35, 61, 247, .7);
         -ms-transform: rotate(-20deg);
-        /* IE 9 */
         -webkit-transform: rotate(-20deg);
-        /* Safari */
         transform: rotate(-20deg);
-        /* Standard syntax */
-    
     }
     
     .navbar-image h1 a{
@@ -118,8 +114,10 @@
         font-size: 19px;
         cursor: pointer;
         font-family: Ubuntu, sans-serif;
-        border: 1px solid rgba(35, 61, 247); 
+        border: 1px solid rgba(10, 10, 10); 
         border-radius: 5px;
+        color: #fff;
+        padding: 6px;
     }
 
     .controlls {
@@ -134,22 +132,21 @@
     .controlls #parties-button{
         padding: 0 20px 0 20px;
         margin-left: 49px;
-        background: rgba(35, 61, 247,.1);
+        margin-right: 15px;
+        background: rgb(10, 10, 10);
     }
 
     .controlls #candidates-button{
         padding: 0 20px 0 20px;
-        background: rgba(10,10,10,.2);
+        background: rgb(10, 10, 10);
     }
 
     #parties-info {
-        /* border: 2px solid blue;  */
         margin: 30px 41px 0 23px;
         height: 500px;
     }
 
     #candidates-info {
-        /* background:green; */
         width: 650px;
         height: 400px;
         padding: 0 0px 0 0;

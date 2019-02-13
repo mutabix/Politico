@@ -22,25 +22,22 @@
 
     <div class="mobile-screen">
         <div class="header">
-            <h1> Admin Sing In </h1>
+            <h1> Admin Sign In </h1>
         </div>
 
-        <form id="login-form">
-            <input type="text" name="name" placeholder="Username">
-            <input type="password" name="pass" placeholder="Password">
-            <a href="#" class="auth-btn" id="login-button">Sign in</a>
+        <form class="login-form">
+                <div class="input-fields">
+                        <label for="name">User name
+                            <input type="text" id="name">
+                        </label>
+                        <label for="password">Password
+                            <input type="password" id="password">
+                        </label>
+                        <p id="wrongInput"></p>
+                    </div>
+            <div class="auth-btn" onclick="formValidator()">Sign in</div> 
         </form>
-
-        <!-- <div class="other-options">
-            <div class="option" id="newUser">
-                <p class="option-text"><a href="../index.html">Create Account</a></p>
-            </div>
-            <div class="option" id="fPass">
-                <p class="option-text"><a href="./reset.html">I forgot my password</a></p>
-            </div>
-        </div> -->
     </div>
-
+    <script type="text/javascript" src="../javascript/adminLogin.js"></script>
 </body>
-
 </html>

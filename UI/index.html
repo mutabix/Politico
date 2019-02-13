@@ -25,13 +25,27 @@
         <div class="header">
             <h1>Create Account</h1>
         </div>
-        <form id="signup-form">
-            <input type="text" name="name" placeholder="Full name">
-            <input type="text" name="country" placeholder="Country">
-            <input type="password" name="pass" placeholder="Password">
-            <input type="number" name="age" placeholder="Your age">
+        <form class="signup-form">
+            <div class="input-fields">
 
-            <a href="#" class="auth-btn">Create Account </a>
+                <label for="last-name"> Full name *
+                    <input type="text" id="fullName" required>
+                </label>
+                <label for="date-birth">Date of birth *
+                    <input type="text"  id="dateBirth" placeholder="dd/mm/yy" required>
+                </label>
+                <label for="location">Current Location *
+                    <input type="text" id="location" required>
+                </label>
+                <label for="first-name">Email *
+                    <input type="email" id="email" required>
+                </label>
+                <label for="password">Password *
+                    <input type="password" id="password" required>
+                </label>
+                <p id="wrongPwd"></p>
+            </div>
+            <div class="auth-btn" onclick="formValidator()">Create Account</div>
         </form>
 
         <div class="other-options">
@@ -45,6 +59,7 @@
         </div>
 
     </div>
+    <script type="text/javascript" src="./javascript/signup.js"></script>
 </body>
 
 </html>

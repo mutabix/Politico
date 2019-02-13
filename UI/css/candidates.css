@@ -21,7 +21,8 @@ body {
     }
 
     .table-head {
-        background: rgba(10, 10, 10, .2);
+        background: rgba(10, 10, 10);
+        color: #fff;
     }
 
     .table-head th {
@@ -32,22 +33,26 @@ body {
 
     .data-head td {
         padding-left: 10px;
-        border-bottom: 2px solid green;
         font-family: Ubuntu, sans-serif;
+        color: #0a0a0a;
     }
 
     .data-head {
-        background: #2980B9;
-        padding: 0 0 0 0;
+        padding:0;
+        color: #fff;
     }
 
-
-    .data-head>td:nth-child(odd) {
-        background: #85C1E9;
+    tr.data-head:hover {
+        z-index: 1;
+        -webkit-box-shadow: 0px 2px 4px #0a0a0a;
+        -moz-box-shadow: 0px 2px 4px #0a0a0a;
+        box-shadow: 0px 2px 4px #0a0a0a;
+        background-color: #233df7;
     }
+
 
     .data-head img{
-        border: 2px solid green;
+        border: 2px solid #0a0a0a;
         margin-left: 10px;
         width: 100px;
         height: 100px;

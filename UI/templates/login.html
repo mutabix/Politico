@@ -25,12 +25,18 @@
             <h1> Sign In </h1>
         </div>
 
-        <form id="login-form">
-            <input type="text" name="name" placeholder="Full name">
-            <input type="password" name="pass" placeholder="Password">
-            <a href="#" class="auth-btn" id="login-button">Sign in</a>
+        <form class="login-form">
+            <div class="input-fields">
+                <label for="name">Email
+                    <input type="email" id="email">
+                </label>
+                <label for="password">Password
+                    <input type="password" id="password">
+                </label>
+                <p id="wrongInput"></p>
+            </div>
+            <div class="auth-btn" onclick="formValidator()"> Sign in</div>
         </form>
-
         <div class="other-options">
             <div class="option" id="newUser">
                 <p class="option-text"><a href="../index.html">Create Account</a></p>
@@ -40,7 +46,7 @@
             </div>
         </div>
     </div>
-
+    <script type="text/javascript" src="../javascript/signin.js"></script>
 </body>
 
 </html>
