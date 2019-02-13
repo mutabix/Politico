@@ -13,8 +13,16 @@ html {
     }
 
     .header-section {
-        margin-left: 20.2%;
+        margin-left: 20.0%;
         background: rgba(35, 61, 247, .7);
+    }
+
+    .bell-icon{
+        color: #fff; 
+    }
+    .bell-icon img{
+        fill: currentColor;
+        cursor: pointer;
     }
 
     a {
@@ -37,7 +45,7 @@ html {
     .profile-container p {
         float: right;
         padding: 20px 40px 0 0px;
-        font-family: Ubuntu, Cantarell, sans-serif;
+        font-family: Ubuntu, sans-serif;
     }
 
     .dashboard-nav {
@@ -45,14 +53,18 @@ html {
         position: fixed;
         height: 704px;
         width: 270px;
-        border: 1px solid blue;
-        background-color: rgba(10, 10, 10, .1);
+        background-color: rgb(10, 10, 10);
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    }
+
+    .dashboard-nav h1 a{
+        color: #0a0a0a;
     }
 
 
     .dashboard-nav h1 {
         text-align: center;
-        font-family: Ubuntu, Cantarell, sans-serif;
+        font-family: Ubuntu, sans-serif;
         border: 2px blue solid;
         padding: 0 0 0 15px;
         width: 72%;
@@ -67,7 +79,6 @@ html {
     }
 
     #logo-image img {
-        width: 25px;
         height: 15px;
     }
 
@@ -87,11 +98,12 @@ html {
         padding-right: 5px;
     }
 
-    .dashboard-item-list li {
+    .dashboard-item-list li, a {
         list-style-type: none;
-        padding: 20px;
+        padding: 18px;
         margin-left: 8px;
-        font-family: Ubuntu, Cantarell, sans-serif;
+        font-family: Ubuntu,sans-serif;
+        color: #fff;
     }
 
     .dashboard-item-list li:hover {
