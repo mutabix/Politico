@@ -17,15 +17,15 @@ class Office{
             error: error.details[0].message
         })
 
-        const office = [{
+        const office = {
             id: offices.length + 1,
             type: req.body.type,
             name: req.body.name
-        }];
+        };
         offices.push(office);
-        res.send({
-            status: 200,
-            data: [office]
+        res.status(201).send({
+            status: 201,
+            data: office
         });
     }
 
