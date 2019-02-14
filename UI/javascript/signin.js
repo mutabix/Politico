@@ -2,9 +2,8 @@ function formValidator() {
     const result = document.getElementById("wrongInput");
     const pwd = document.getElementById("password").value;
     const email = document.getElementById('email').value;
-    if ( email === ' ' ||  pwd.length < 6) {
-        result.innerHTML = 'Invalid email or  wrong password'
-        return;
+    if (email==null || email=="" || pwd.length < 6) {
+        return result.innerHTML = 'Invalid email or  wrong password'
     };
     window.location.assign('home.html');
 }
