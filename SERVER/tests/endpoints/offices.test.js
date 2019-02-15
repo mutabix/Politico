@@ -91,7 +91,7 @@ describe('Offices', () => {
                 .end((err, res) => {
                     // console.log(res.body.message);
                     expect(res.body.status).to.be.eql(404);
-                    expect(res.body.message).to.be.eql('Wrong Url!');
+                    expect(res.body.message).to.be.eql('Wrong Url or HTTP Request!');
                     done();
                 });
 
