@@ -106,8 +106,8 @@ class Party {
 
 function partyValidator(party) {
     const schema = {
-        name: Joi.string().regex(/^\S+$/).max(10).required(),
-        hqAddress: Joi.string().regex(/^\S+$/).max(10).required(),
+        name: Joi.string().regex(/^\S+$/).min(3).max(10).required(),
+        hqAddress: Joi.string().regex(/^\S+$/).min(3).max(10).required(),
         logoUrl: Joi.string().uri().required()
     };
 

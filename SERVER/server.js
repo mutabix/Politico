@@ -11,16 +11,17 @@ app.use(express.json());
 app.use(partyRouter);
 app.use(officeRouter);
 
+
 app.get('/', (req, res) =>{
     res.status(200).json({
         message: 'Welcome to Politico App'
     });
 });
 
-app.get('*', (req, res) =>{
+app.use('*', (req, res) =>{
     res.status(404).send({
         status: 404,
-        message: 'Wrong Url!'
+        message: 'Wrong Url or HTTP Request!'
     });
 });
 

@@ -23,7 +23,7 @@ describe('Political Parties', () => {
                 .post('/api/v1/parties')
                 .send(party)
                 .end((err, res) => {
-                    console.log(res.body);
+                    // console.log(res.body);
                     res.body.status.should.be.eql(201);
                     expect(party).is.an('object');
 
@@ -42,7 +42,7 @@ describe('Political Parties', () => {
                 .request(app)
                 .get('/api/v1/parties')
                 .end((err, res) => {
-                    console.log(res.body);
+                    // console.log(res.body);
                     res.body.should.have.property("status").eql(200);
                     res.body.should.have.property("data").that.is.an('array');
                     done();
@@ -58,7 +58,7 @@ describe('Political Parties', () => {
                 .request(app)
                 .get(`/api/v1/parties/${id}`)
                 .end((err, res) => {
-                    console.log(res.body);
+                    // console.log(res.body);
                     res.body.should.have.property("status").eql(200);
                     res.body.should.have.property("data").that.is.an('array');
                     done();
@@ -70,7 +70,7 @@ describe('Political Parties', () => {
                 .request(app)
                 .get(`/api/v1/parties/${id}`)
                 .end((err, res) => {
-                    console.log(res.body);
+                    // console.log(res.body);
                     if (!id) {
                         res.body.should.have.property("status").eql(404);
                         res.body.should.have.property("error").that.is.a("string");
@@ -103,7 +103,7 @@ describe('Political Parties', () => {
                 .request(app)
                 .get(`/api/v1/parties/${id}`)
                 .end((err, res) => {
-                    console.log(res.body);
+                    // console.log(res.body);
                     res.body.should.have.property("status").eql(200);
                     res.body.should.have.property("data").that.is.an('array');
                     done();
@@ -117,7 +117,7 @@ describe('Political Parties', () => {
                 .request(app)
                 .delete(`/api/v1/parties/${id}`)
                 .end((err, res) => {
-                    console.log(res.body);
+                    // console.log(res.body);
                     res.body.should.have.property("status").eql(200);
                     res.body.should.have.property("data").that.is.an("array");
                     done();
@@ -129,7 +129,7 @@ describe('Political Parties', () => {
                 .request(app)
                 .delete(`/api/v1/parties/${id}`)
                 .end((err, res) => {
-                    console.log(res.body);
+                    // console.log(res.body);
                     if (!id) {
                         res.body.should.have.property("status").eql(404);
                         res.body.should.have.property("error").that.is.a("string");
@@ -147,7 +147,7 @@ describe('Political Parties', () => {
                 .request(app)
                 .get('/fxd/hy')
                 .end((err, res) => {
-                    console.log(res.body.message);
+                    // console.log(res.body.message);
                     expect(res.body.status).to.be.eql(404);
                     expect(res.body.message).to.be.eql('Wrong Url!');
                     done();

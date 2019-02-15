@@ -55,8 +55,8 @@ class Office{
 
 function officeValidator(office) {
     const schema = {
-        type: Joi.string().regex(/^\S+$/).max(10).required(),
-        name: Joi.string().regex(/^\S+$/).max(10).required(),
+        type: Joi.string().regex(/^\S+$/).min(3).max(10).required(),
+        name: Joi.string().regex(/^\S+$/).min(3).max(10).required(),
     };
 
     const options = {
