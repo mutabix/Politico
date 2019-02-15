@@ -140,16 +140,16 @@ describe('Political Parties', () => {
         });
     });
 
-    describe('Send GET request to wrong path', () => {
+    describe('Send GET request to wrong Url', () => {
         it('Should notify the client when the path is incorrect', (done) => {
 
             chai
                 .request(app)
-                .get('/*')
+                .get('/fxd/hy')
                 .end((err, res) => {
                     console.log(res.body.message);
                     expect(res.body.status).to.be.eql(404);
-                    expect(res.body.message).to.be.eql('Wrong Path!');
+                    expect(res.body.message).to.be.eql('Wrong Url!');
                     done();
                 });
 
