@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">56.76% </span>
+        <span class="strong">62.16% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>21/37</span>
+        <span class='fraction'>23/37</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">40% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>3/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">56.67% </span>
+        <span class="strong">66.67% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>17/30</span>
+        <span class='fraction'>20/30</span>
       </div>
     </div>
     <p class="quiet">
@@ -184,14 +184,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -255,7 +255,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -301,21 +301,21 @@ class Party {
             error
         } = partyValidator(req.body);
 &nbsp;
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (error) return res.send({
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (error) <span class="cstat-no" title="statement not covered" >return r</span>es.send({
             status: 404,
             error: error.details[0].message
         })
 &nbsp;
-        const party = <span class="cstat-no" title="statement not covered" >{</span>
+        const party = {
             id: parties.length + 1,
             name: req.body.name,
             hqAddress: req.body.hqAddress,
             logoUrl: req.body.logoUrl
         };
-<span class="cstat-no" title="statement not covered" >        parties.push(party);</span>
-<span class="cstat-no" title="statement not covered" >        res.send({</span>
-            status: 200,
-            data: [party]
+        parties.push(party);
+        res.status(201).send({
+            status: 201,
+            data: party
         });
     }
 &nbsp;
@@ -333,10 +333,10 @@ class Party {
     // Get one party
     static getOneParty(req, res) {
         const party = parties.find(p =&gt; p.id === parseInt(req.params.id));
-        <span class="missing-if-branch" title="if path not taken" >I</span>if (!party)<span class="cstat-no" title="statement not covered" >return res.send({</span>
-                status: 404,
-                error: `Party with ID ${req.params.id} is not found!`
-            });
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!party) <span class="cstat-no" title="statement not covered" >return r</span>es.send({
+            status: 404,
+            error: `Party with ID ${req.params.id} is not found!`
+        });
         res.send({
             status: 200,
             data: [party]
@@ -346,10 +346,10 @@ class Party {
 &nbsp;
     static updateParty(req, res) <span class="cstat-no" title="statement not covered" >{</span>
 &nbsp;
-        const party = <span class="cstat-no" title="statement not covered" >parties.find(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >p =&gt; p.id === parseInt(req.params.id));</span></span></span>
-    
+        const party = <span class="cstat-no" title="statement not covered" >parties.f</span>ind(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >p =&gt; p</span></span>.id === parseInt(req.params.id));
+&nbsp;
 <span class="cstat-no" title="statement not covered" >        if (!party) {</span>
-<span class="cstat-no" title="statement not covered" >            return res.send({</span>
+<span class="cstat-no" title="statement not covered" >            return r</span>es.send({
                 status: 404,
                 error: `Party with  id ${req.params.id} is not found!`
             });
@@ -359,17 +359,17 @@ class Party {
 &nbsp;
         const {
             error
-        } = <span class="cstat-no" title="statement not covered" >partyValidator(req.body);</span>
-<span class="cstat-no" title="statement not covered" >        if (error) <span class="cstat-no" title="statement not covered" >r</span>eturn res.send({</span>
+        } = <span class="cstat-no" title="statement not covered" >partyValidator(r</span>eq.body);
+<span class="cstat-no" title="statement not covered" >        if (error) <span class="cstat-no" title="statement not covered" >return r</span></span>es.send({
             status: 404,
             error: error.details[0].message
         })
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        party.name = req.body.name;</span>
-<span class="cstat-no" title="statement not covered" >        party.hqAddress = req.body.hqAddress;</span>
-<span class="cstat-no" title="statement not covered" >        party.logoUrl = req.body.logoUrl;</span>
+<span class="cstat-no" title="statement not covered" >        party.n</span>ame = req.body.name;
+<span class="cstat-no" title="statement not covered" >        party.h</span>qAddress = req.body.hqAddress;
+<span class="cstat-no" title="statement not covered" >        party.l</span>ogoUrl = req.body.logoUrl;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        res.send({</span>
+<span class="cstat-no" title="statement not covered" >        res.s</span>end({
             status: 200,
             data: [party]
         });
@@ -398,9 +398,9 @@ class Party {
 &nbsp;
 function partyValidator(party) {
     const schema = {
-        name: Joi.string().min(3).max(10).required(),
-        hqAddress: Joi.string().min(3).max(10).required(),
-        logoUrl: Joi.string().required(),
+        name: Joi.string().regex(/^\S+$/).max(10).required(),
+        hqAddress: Joi.string().regex(/^\S+$/).max(10).required(),
+        logoUrl: Joi.string().uri().required()
     };
 &nbsp;
     const options = {
@@ -418,7 +418,7 @@ export default Party;</pre></td></tr>
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Feb 08 2019 22:18:21 GMT+0200 (Central Africa Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Feb 15 2019 09:59:21 GMT+0200 (Central Africa Time)
 </div>
 </div>
 <script src="../../prettify.js"></script>
