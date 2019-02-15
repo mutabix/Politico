@@ -11,11 +11,20 @@ app.use(express.json());
 app.use(partyRouter);
 app.use(officeRouter);
 
+
 app.get('/', (req, res) =>{
     res.status(200).json({
         message: 'Welcome to Politico App'
     });
 });
+
+app.use('*', (req, res) =>{
+    res.status(404).send({
+        status: 404,
+        message: 'Wrong Url or HTTP Request!'
+    });
+});
+
 
 const port = process.env.PORT || 3000; 
 app.listen(port);

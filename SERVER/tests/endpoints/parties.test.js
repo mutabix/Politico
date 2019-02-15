@@ -8,8 +8,33 @@ const expect = chai.expect;
 chai.use(chaiHttp);
 
 
-
 describe('Political Parties', () => {
+
+    describe('POST api/v1/parties', () => {
+        it('Creates  a political party', (done) => {
+
+            const party = {
+                name: 'mechanics',
+                hqAddress: 'Kigali',
+                logoUrl: 'https://s.yimg.com/aah/yhst-133408872241974/personalizadas-real-madrid-3-x5-flags-3.gif'
+            };
+            chai
+                .request(app)
+                .post('/api/v1/parties')
+                .send(party)
+                .end((err, res) => {
+                    // console.log(res.body);
+                    res.body.status.should.be.eql(201);
+                    expect(party).is.an('object');
+
+                    if (err) {
+                        expect(res).to.have.status(404);
+                        res.body.should.have.property("error").that.is.a('string');
+                    };
+                    done();
+                });
+        });
+    });
 
     describe('GET api/v1/parties', () => {
         it('Displays all political parties', (done) => {
@@ -17,9 +42,9 @@ describe('Political Parties', () => {
                 .request(app)
                 .get('/api/v1/parties')
                 .end((err, res) => {
+                    // console.log(res.body);
                     res.body.should.have.property("status").eql(200);
                     res.body.should.have.property("data").that.is.an('array');
-
                     done();
                 });
         });
@@ -33,6 +58,7 @@ describe('Political Parties', () => {
                 .request(app)
                 .get(`/api/v1/parties/${id}`)
                 .end((err, res) => {
+                    // console.log(res.body);
                     res.body.should.have.property("status").eql(200);
                     res.body.should.have.property("data").that.is.an('array');
                     done();
@@ -44,6 +70,7 @@ describe('Political Parties', () => {
                 .request(app)
                 .get(`/api/v1/parties/${id}`)
                 .end((err, res) => {
+                    // console.log(res.body);
                     if (!id) {
                         res.body.should.have.property("status").eql(404);
                         res.body.should.have.property("error").that.is.a("string");
@@ -53,31 +80,7 @@ describe('Political Parties', () => {
         });
     });
 
-    describe('POST api/v1/parties', () => {
-        it('Creates  a political party', (done) => {
-
-            const party = [{
-                id: 1,
-                name: 'muo',
-                hqAddress: 'London',
-                logoUrl: 'https://en.wikipedia.org/wiki/Labour_Party_(UK)#/media/File:Logo_Labour_Party.svg'
-            }];
-            chai
-                .request(app)
-                .post('/api/v1/parties/')
-                .send([party])
-                .end((err, res) => {
-                    expect(res).to.have.status(200);
-                    expect(party).is.an('array');
-
-                    if (err) {
-                        expect(res).to.have.status(404);
-                        res.body.should.have.property("error").that.is.a('string');
-                    };
-                    done();
-                });
-        });
-    });
+    
 
     describe('PATCH api/v1/parties/:id', () => {
         it('Edits a single political party', (done) => {
@@ -100,6 +103,7 @@ describe('Political Parties', () => {
                 .request(app)
                 .get(`/api/v1/parties/${id}`)
                 .end((err, res) => {
+                    // console.log(res.body);
                     res.body.should.have.property("status").eql(200);
                     res.body.should.have.property("data").that.is.an('array');
                     done();
@@ -113,6 +117,7 @@ describe('Political Parties', () => {
                 .request(app)
                 .delete(`/api/v1/parties/${id}`)
                 .end((err, res) => {
+                    // console.log(res.body);
                     res.body.should.have.property("status").eql(200);
                     res.body.should.have.property("data").that.is.an("array");
                     done();
@@ -124,12 +129,29 @@ describe('Political Parties', () => {
                 .request(app)
                 .delete(`/api/v1/parties/${id}`)
                 .end((err, res) => {
+                    // console.log(res.body);
                     if (!id) {
                         res.body.should.have.property("status").eql(404);
                         res.body.should.have.property("error").that.is.a("string");
                     };
                     done();
                 })
+
+        });
+    });
+
+    describe('Send GET request to wrong Url', () => {
+        it('Should notify the client when the path is incorrect', (done) => {
+
+            chai
+                .request(app)
+                .get('/fxd/hy')
+                .end((err, res) => {
+                    // console.log(res.body.message);
+                    expect(res.body.status).to.be.eql(404);
+                    expect(res.body.message).to.be.eql('Wrong Url or HTTP Request!');
+                    done();
+                });
 
         });
     });
