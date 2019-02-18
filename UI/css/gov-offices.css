@@ -15,6 +15,12 @@
     title {
         font-family: Ubuntu, sans-serif;
     }
+
+    span.logo-icon {
+        font-size: 16px;
+        left: 0;
+        right: 0;
+    }
    
     .nav-container {
         height: 120px;

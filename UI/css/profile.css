@@ -25,6 +25,12 @@
     
     }
 
+    span.logo-icon {
+        font-size: 16px;
+        left: 0;
+        right: 0;
+    }
+
     .navbar {
         display: flex;
         height: 120px;

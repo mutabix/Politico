@@ -1,9 +1,9 @@
 /* dashboard styling */
 
-@media(min-width: 992px){
-    
-    body{
-        margin:0;
+@media(min-width: 992px) {
+
+    body {
+        margin: 0;
         padding: 0;
     }
 
@@ -12,31 +12,37 @@
     }
 
     title {
-        font-family: Ubuntu,sans-serif
+        font-family: Ubuntu, sans-serif
+    }
+
+    span.logo-icon {
+        font-size: 16px;
+        left: 0;
+        right: 0;
     }
 
     .nav-container {
         height: 120px;
-        background-color: rgba(10,10,10);
+        background-color: rgba(10, 10, 10);
         position: sticky;
         width: 100%;
-        top: 0;    
-    
+        top: 0;
+
     }
 
     .navbar {
         display: flex;
         height: 120px;
     }
-    
+
     .navbar-image {
         width: 200px;
         margin: 25px 0 10px 10px;
     }
-    
+
     .navbar-image h1 {
         text-align: center;
-        font-family: Ubuntu,sans-serif;
+        font-family: Ubuntu, sans-serif;
         border: 2px blue solid;
         padding: 0 0 0 15px;
         width: 72%;
@@ -47,16 +53,16 @@
         -ms-transform: rotate(-20deg);
         -webkit-transform: rotate(-20deg);
         transform: rotate(-20deg);
-    
+
     }
-    
-    .navbar-image h1 a{
+
+    .navbar-image h1 a {
         color: black;
     }
-    
-    
+
+
     .item-list li {
-        font-family: Ubuntu,sans-serif;
+        font-family: Ubuntu, sans-serif;
         display: inline;
         font-size: 18px;
         padding: 5px;
@@ -65,24 +71,24 @@
     .item-list a {
         color: #FFF;
     }
-    
-    
-    .item-list li:hover{
+
+
+    .item-list li:hover {
         font-size: 16px;
         color: #060606;
-        background-color: rgba(35, 61, 247); 
-        height: 50px; 
+        background-color: rgba(35, 61, 247);
+        height: 50px;
         width: 50px;
         border-radius: 300px;
         vertical-align: middle;
-        transition: all 1s ease;    
+        transition: all 1s ease;
     }
-    
+
     .list-container {
         margin-top: 30px;
         margin-left: 38%;
     }
-    
+
     #logo-image img {
         width: 25px;
         height: 15px;
@@ -90,13 +96,13 @@
 
     .content-container {
         position: absolute;
-        left: 14%; 
+        left: 14%;
         top: 30%;
     }
 
 
-    .content-container  h3{
-        font-family: Ubuntu, sans-serif; 
+    .content-container h3 {
+        font-family: Ubuntu, sans-serif;
         text-align: center;
     }
 
@@ -104,9 +110,9 @@
         list-style-type: none;
     }
 
-    .home-list img{
-        width:300px;
-        border-radius: 15px; 
+    .home-list img {
+        width: 300px;
+        border-radius: 15px;
     }
 
     .home-list {
@@ -122,8 +128,7 @@
         position: fixed;
         width: 100%;
         text-align: center;
-        background: rgb(35, 61, 247); 
+        background: rgb(35, 61, 247);
         padding: 8px 0 4px 0;
     }
 }
-
