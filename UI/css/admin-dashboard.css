@@ -23,14 +23,6 @@ html {
         background: rgba(35, 61, 247, .7);
     }
 
-    .bell-icon{
-        color: #fff; 
-    }
-    .bell-icon img{
-        fill: currentColor;
-        cursor: pointer;
-    }
-
     a {
         text-decoration: none;
         color: black;
@@ -41,12 +33,21 @@ html {
 
     }
 
-    .profile-container img {
-        width: 35px;
-        padding: 23px 20px 0 5px;
-        float: right;
 
+    .profile-container span{
+        margin-top: 31px; 
+        padding: 10px;
+        float: right;
+        cursor: pointer;
     }
+
+    .profile i{
+        font-size: 22px;
+    }
+    .notifications i{
+        font-size: 22px;
+    }
+
 
     .profile-container p {
         float: right;
@@ -104,12 +105,13 @@ html {
         padding-right: 5px;
     }
 
-    .dashboard-item-list li, a {
+    .dashboard-item-list li{
         list-style-type: none;
         padding: 18px;
         margin-left: 8px;
         font-family: Ubuntu,sans-serif;
         color: #fff;
+        cursor: pointer;
     }
 
     .dashboard-item-list li:hover {
@@ -121,10 +123,5 @@ html {
         font-family: Ubuntu, sans-serif;
         border-radius: 5%;
 
-    }
-
-    .admin-desktop {
-        width: 50px;
-        color: white;
     }
 }

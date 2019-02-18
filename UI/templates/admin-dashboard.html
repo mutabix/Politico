@@ -19,8 +19,12 @@
             <header>
                 <div class="profile-container">
                     <p><a href="#">Don Joe</a></p>
-                    <a class="bell-icon"><img src="../assets/icons/bell.svg" alt=""></a>
-                    <a href="#"><img src="../assets/icons/avatar.png" alt=""></a>
+                    <span class="profile">
+                        <i class="fas fa-user-alt"></i>
+                    </span>
+                    <span class="notifications">
+                        <i class="fas fa-bell"></i>
+                    </span>
                 </div>
             </header>
         </div>
@@ -49,33 +53,38 @@
                 </li>
                 <li class="dashboard-item" id="createOffice">
                     <span class="admin-plus">
-                        <i class="fal fa-plus"></i>
+                        <i class="fas fa-plus"></i>
                     </span>
                     CreateOffice
                 </li>
                 <li class="dashboard-item" id="createParty">
                     <span class="dashboard-plus">
-                        <i class="fal fa-plus"></i>
+                        <i class="fas fa-plus"></i>
                     </span>
                     Create a Party
                 </li>
                 <li class="dashboard-item" id="editParty">
                     <span class="admin-edit">
-                        <i class="fal fa-edit"></i>
+                        <i class="fas fa-edit"></i>
                     </span>
                     Edit a Party
                 </li>
                 <li class="dashboard-item" id="deleteParty">
-                    <span class="admin-delete"></span>
-                    <i class="fal fa-trash"></i>
+                    <span class="admin-delete">
+                        <i class="fas fa-trash"></i>
+                    </span>
+
                     Delete a Party
                 </li>
-                <li class="dashboard-item">
+
+                <li class="dashboard-item" id="logout">
                     <span class="admin-logout">
-                        <i class="fal fa-switch"></i>
+                        <i class="fas fa-power-off"></i>
                     </span>
+
                     Log Out
                 </li>
+
             </ul>
         </div>
     </div>

@@ -3,7 +3,7 @@ body {
   margin: 0;
 }
 
-@media(min-width: 992px) {
+@media(min-width: 992px){
   @font-face {
     font-family: 'Source Sans Pro';
     font-style: normal;
@@ -70,6 +70,778 @@ body {
     width: 100%;
   }
 
+
+  .logo {
+    margin: 2.4% 25% 2% 25%;  
+  }
+
+
+  .logo h1 {
+    margin: 5% 25% -10% 38%;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+    font-size: 1.7rem;
+    border: 3px solid;
+    border-color: rgb(10, 10, 10);
+    width: 20%;
+    border-radius: 4px;
+    background-color: rgba(35, 61, 247);
+    -ms-transform: rotate(-20deg);
+    -webkit-transform: rotate(-20deg);
+    transform: rotate(-20deg);
+    font-family: Ubuntu, sans-serif;
+  }
+
+  .logo a, img {
+    color: black;
+  }
+
+  .logo h1:hover {
+
+    border-radius: 4px;
+    box-shadow: 1 0 0 1px rgba(35, 61, 247, .2);
+    transition: all 400ms ease-in-out;
+  }
+
+
+   span.logo-icon{
+    font-size: 16px ;
+    left: 0;
+    right: 0;
+  }
+
+  /* Create account page */
+
+div.auth-btn {
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+
+}
+
+#wrongInput{
+  color:  rgb(233, 78, 78); 
+  font-size: 15px;
+  font-family: Ubuntu, sans-serif;
+}
+
+  input,
+  .auth-btn {
+    font-family: Ubuntu, sans-serif;
+    position: relative;
+    display: block;
+    padding: 10px;
+    width: 84%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  }
+
+
+  .input-fields {
+    padding-top: 30px;
+    padding-left: 30px;
+    margin-bottom: 20px;
+  }
+
+  .input-fields label{
+    color: #fff;
+    margin-bottom: 2px;
+    font-family: Ubuntu, sans-serif;
+
+  }
+
+  .input-fields input{
+    margin-left: 10px;
+    margin-bottom: 5px;
+    border: none;
+    border-left: 3px solid;
+    background: none;
+    border-color: rgb(35, 61, 247);
+    color: #fff;
+    font-weight: 300;
+    font-size: 18px;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+  }
+
+  .input-fields input:focus {
+    outline: 0;
+    background: rgba(35, 61, 247, .2);
+    border-radius: 20px;
+    border-color: transparent;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .auth-btn{
+    margin: auto;
+    background: black;
+    border: 1px solid #333;
+  }
+
+  .auth-btn a {
+    color: #fff;
+    font-size: 15px;
+  }
+  .other-options {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    bottom: 17px;
+    left: 0;
+  }
+
+  .option {
+    position: relative;
+    display: block;
+    float: right;
+    width: 45%;
+    margin: auto;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    background: rgb(10, 10, 10);
+    border-bottom: 2px solid rgb(35, 61, 247);
+  }
+
+  .option a {
+    color: #fff;
+    font-family: Ubuntu, sans-serif;
+    font-size: 15px;
+  }
+
+
+  .option:first-child {
+    float: left;
+    left: 3.3%;
+  }
+
+  .option:last-child {
+    margin-right: 3.3%;
+  }
+
+
+  .option-text {
+    position: relative;
+    margin: 0;
+    line-height: 30px;
+    color: #ccc;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 100;
+    font-size: 0.8rem;  
+
+  }
+
+  /* Login form  */
+
+  .login-form input{
+    border: none;
+    border-left: 5px solid;
+    background: none;
+    border-color: rgb(35, 61, 247);
+    color: #fff;
+    font-weight: 300;
+    font-size: 18px;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    margin-bottom: 80px;
+  }
+
+  .login-form input:focus {
+    outline: 0;
+    background: rgba(35, 61, 247, .2);
+    border-radius: 20px;
+    border-color: transparent;
+  }
+
+
+}
+
+
+
+/* Tablet screen size */
+
+@media(max-width: 900px){
+  body {
+    background: url('../assets/images/vote.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+  } 
+
+  .index-screen {
+    position: absolute;
+    margin: auto;
+    top: 70px;
+    left: 0;
+    bottom: 0px;
+    right: 0;
+    width: 650px;
+    height: 500px;
+    background: rgba(3, 3, 3, .7);
+    overflow: hidden;
+    border-radius:  14px;
+    padding-bottom: 20px;
+  }
+  
+  .header {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    background: rgba(3, 3, 3);
+  }
+
+  .header h1 {
+    color: #fff;
+    font-family: Ubuntu, sans-serif;
+  }
+
+
+  h1 {
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+    font-weight: 300;
+    font-size: 21px;
+    color: rgba(255, 255, 255, .5);
+  }
+
+
+  form {
+    position: absolute;
+    bottom: 60px;
+    width: 100%;
+  }
+
+  .logo {
+    margin: 2.4% 25% 0 25%;
+   
+  
+  }
+
+
+  .logo h1 {
+    margin: 5% 25% 5% 38%;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+    font-size: 1.7rem;
+    border: 3px solid;
+    border-color: rgb(10, 10, 10);
+    width: 30%;
+    border-radius: 4px;
+    background-color: rgba(35, 61, 247);
+    -ms-transform: rotate(-20deg);
+    -webkit-transform: rotate(-20deg);
+    transform: rotate(-20deg);
+    font-family: Ubuntu, sans-serif;
+   
+
+  }
+
+  .logo a, img {
+    color: black;
+  }
+
+  .logo h1:hover {
+
+    border-radius: 4px;
+    box-shadow: 1 0 0 1px rgba(35, 61, 247, .2);
+    transition: all 400ms ease-in-out;
+  }
+
+
+   span.logo-icon{
+    font-size: 16px ;
+    left: 0;
+    right: 0;
+  }
+
+  /* Create account page */
+
+div.auth-btn {
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+
+}
+
+#wrongInput{
+  color:  rgb(233, 78, 78); 
+  font-size: 15px;
+  font-family: Ubuntu, sans-serif;
+}
+
+  input,
+  .auth-btn {
+    font-family: Ubuntu, sans-serif;
+    position: relative;
+    display: block;
+    padding: 10px;
+    width: 84%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  }
+
+
+  .input-fields {
+    padding-top: 30px;
+    padding-left: 30px;
+    margin-bottom: 20px;
+  }
+
+  .input-fields label{
+    color: #fff;
+    margin-bottom: 2px;
+    font-family: Ubuntu, sans-serif;
+
+  }
+
+  .input-fields input{
+    margin-left: 10px;
+    margin-bottom: 5px;
+    border: none;
+    border-left: 3px solid;
+    background: none;
+    border-color: rgb(35, 61, 247);
+    color: #fff;
+    font-weight: 300;
+    font-size: 18px;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+  }
+
+  .input-fields input:focus {
+    outline: 0;
+    background: rgba(35, 61, 247, .2);
+    border-radius: 20px;
+    border-color: transparent;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .auth-btn{
+    margin: auto;
+    background: black;
+    border: 1px solid #333;
+  }
+
+  .auth-btn a {
+    color: #fff;
+    font-size: 15px;
+  }
+  .other-options {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    bottom: 17px;
+    left: 0;
+  }
+
+  .option {
+    position: relative;
+    display: block;
+    float: right;
+    width: 45%;
+    margin: auto;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    background: rgb(10, 10, 10);
+    border-bottom: 2px solid rgb(35, 61, 247);
+  }
+
+  .option a {
+    color: #fff;
+    font-family: Ubuntu, sans-serif;
+    font-size: 15px;
+  }
+
+
+  .option:first-child {
+    float: left;
+    left: 3.3%;
+  }
+
+  .option:last-child {
+    margin-right: 3.3%;
+  }
+
+
+  .option-text {
+    position: relative;
+    margin: 0;
+    line-height: 30px;
+    color: #ccc;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 100;
+    font-size: 0.8rem;  
+
+  }
+
+  /* Login form  */
+
+  .login-form input{
+    border: none;
+    border-left: 5px solid;
+    background: none;
+    border-color: rgb(35, 61, 247);
+    color: #fff;
+    font-weight: 300;
+    font-size: 18px;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    margin-bottom: 80px;
+  }
+
+  .login-form input:focus {
+    outline: 0;
+    background: rgba(35, 61, 247, .2);
+    border-radius: 20px;
+    border-color: transparent;
+  }
+
+
+}
+
+
+/* Smart-phone screen size */
+
+@media(max-width: 600px){
+  body {
+    background: url('../assets/images/vote.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+  }
+
+  .index-screen {
+    position: absolute;
+    margin: auto;
+    top: 70px;
+    left: 0;
+    bottom: 0px;
+    right: 0;
+    width: 500px;
+    height: 500px;
+    background: rgba(3, 3, 3, .7);
+    overflow: hidden;
+    border-radius:  14px;
+    padding-bottom: 20px;
+  }
+
+  .header {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    background: rgba(3, 3, 3);
+  }
+
+  .header h1 {
+    color: #fff;
+    font-family: Ubuntu, sans-serif;
+  }
+
+
+  h1 {
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+    font-weight: 300;
+    font-size: 21px;
+    color: rgba(255, 255, 255, .5);
+  }
+
+
+  form {
+    position: absolute;
+    bottom: 60px;
+    width: 100%;
+  }
+
+  .logo {
+    margin: 2.4% 25% 0 25%;
+  
+  }
+
+
+  .logo h1 {
+    margin: 5% 25% 2% 38%;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+    font-size: 1.7rem;
+    border: 3px solid;
+    border-color: rgb(10, 10, 10);
+    width: 50%;
+    border-radius: 4px;
+    background-color: rgba(35, 61, 247);
+    -ms-transform: rotate(-20deg);
+    -webkit-transform: rotate(-20deg);
+    transform: rotate(-20deg);
+    font-family: Ubuntu, sans-serif;
+   
+
+  }
+
+  .logo a, img {
+    color: black;
+  }
+
+  .logo h1:hover {
+
+    border-radius: 4px;
+    box-shadow: 1 0 0 1px rgba(35, 61, 247, .2);
+    transition: all 400ms ease-in-out;
+  }
+
+
+   span.logo-icon{
+    font-size: 16px ;
+    left: 0;
+    right: 0;
+  }
+
+  /* Create account page */
+
+div.auth-btn {
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+
+}
+
+#wrongInput{
+  color:  rgb(233, 78, 78); 
+  font-size: 15px;
+  font-family: Ubuntu, sans-serif;
+}
+
+  input,
+  .auth-btn {
+    font-family: Ubuntu, sans-serif;
+    position: relative;
+    display: block;
+    padding: 10px;
+    width: 84%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  }
+
+
+  .input-fields {
+    padding-top: 30px;
+    padding-left: 30px;
+    margin-bottom: 20px;
+  }
+
+  .input-fields label{
+    color: #fff;
+    margin-bottom: 2px;
+    font-family: Ubuntu, sans-serif;
+
+  }
+
+  .input-fields input{
+    margin-left: 10px;
+    margin-bottom: 5px;
+    border: none;
+    border-left: 3px solid;
+    background: none;
+    border-color: rgb(35, 61, 247);
+    color: #fff;
+    font-weight: 300;
+    font-size: 18px;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+  }
+
+  .input-fields input:focus {
+    outline: 0;
+    background: rgba(35, 61, 247, .2);
+    border-radius: 20px;
+    border-color: transparent;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .auth-btn{
+    margin: auto;
+    background: black;
+    border: 1px solid #333;
+  }
+
+  .auth-btn a {
+    color: #fff;
+    font-size: 15px;
+  }
+  .other-options {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    bottom: 17px;
+    left: 0;
+  }
+
+  .option {
+    position: relative;
+    display: block;
+    float: right;
+    width: 45%;
+    margin: auto;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    background: rgb(10, 10, 10);
+    border-bottom: 2px solid rgb(35, 61, 247);
+  }
+
+  .option a {
+    color: #fff;
+    font-family: Ubuntu, sans-serif;
+    font-size: 15px;
+  }
+
+
+  .option:first-child {
+    float: left;
+    left: 3.3%;
+  }
+
+  .option:last-child {
+    margin-right: 3.3%;
+  }
+
+
+  .option-text {
+    position: relative;
+    margin: 0;
+    line-height: 30px;
+    color: #ccc;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 100;
+    font-size: 0.8rem;  
+
+  }
+
+  /* Login form  */
+
+  .login-form input{
+    border: none;
+    border-left: 5px solid;
+    background: none;
+    border-color: rgb(35, 61, 247);
+    color: #fff;
+    font-weight: 300;
+    font-size: 18px;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    margin-bottom: 80px;
+  }
+
+  .login-form input:focus {
+    outline: 0;
+    background: rgba(35, 61, 247, .2);
+    border-radius: 20px;
+    border-color: transparent;
+  }
+
+}
+
+
+/* Extra small smart-phone screen */
+
+@media(max-width: 320px){
+  body {
+    background: url('../assets/images/vote.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+  }
+
+  .index-screen {
+    position: absolute;
+    margin: auto;
+    top: 70px;
+    left: 0;
+    bottom: 0px;
+    right: 0;
+    width: 650px;
+    height: 500px;
+    background: rgba(3, 3, 3, .7);
+    overflow: hidden;
+    border-radius:  14px;
+    padding-bottom: 20px;
+  }
+
+  .header {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    background: rgba(3, 3, 3);
+  }
+
+  .header h1 {
+    color: #fff;
+    font-family: Ubuntu, sans-serif;
+  }
+
+
+  h1 {
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+    font-weight: 300;
+    font-size: 21px;
+    color: rgba(255, 255, 255, .5);
+  }
+
+
+  form {
+    position: absolute;
+    bottom: 60px;
+    width: 100%;
+  }
 
   .logo {
     margin: 2.4% 25% 0 25%;
@@ -277,5 +1049,4 @@ div.auth-btn {
     margin: auto;
     background: rgba(255, 255, 255, .5);
   }
-
 }
