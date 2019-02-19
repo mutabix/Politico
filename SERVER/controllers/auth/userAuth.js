@@ -1,3 +1,4 @@
+import Joi from 'joi';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import userValidator from '../../helpers/userValidator';
@@ -34,6 +35,7 @@ class User {
                     };
 
                     // Encrypting the password 
+
                     bcrypt.genSalt(12, (error, salt) => {
                         if (error) res.status(400).send(error);
                         bcrypt.hash(newUser.passWord, salt, (hashError, hash) => {
@@ -41,6 +43,7 @@ class User {
                                 error: 'Check your password and try again!'
                             });
                             newUser.passWord = hash;
+
                             // Save the password in the DB 
 
                             pool.query("INSERT INTO users(firstname,lastname,middlename,phonenumber,passport,password,email,isadmin) VALUES($1,$2,$3,$4,$5,$6,$7,$8) RETURNING*",
@@ -54,13 +57,13 @@ class User {
                                         newUser.email,
                                         newUser.isAdmin
                                     ])
-                                .then((saved) => {
-                                    if (saved) {
+                                .then((savedUser) => {
+                                    if (savedUser) {
                                         const payLoad = {
-                                            id: saved.rows[0].id,
-                                            firstName: saved.rows[0].firstName,
-                                            lastName: saved.rows[0].lastName,
-                                            email: saved.rows[0].email
+                                            id: savedUser.rows[0].id,
+                                            firstName: savedUser.rows[0].firstName,
+                                            lastName: savedUser.rows[0].lastName,
+                                            email: savedUser.rows[0].email
                                         };
                                         jwt.sign(payLoad, dbKeys.secretWord, {
                                             expiresIn: 3600
@@ -70,7 +73,7 @@ class User {
                                                 message: 'Account Successfully Created!',
                                                 data: [{
                                                     token: token,
-                                                    user: saved.rows[0]
+                                                    user: savedUser.rows[0]
                                                 }]
                                             });
 
@@ -89,6 +92,83 @@ class User {
                 }
             })
     }
+
+
+
+    static logIn(req, res){
+        const {
+            error
+        } = loginValidator(req.body);
+
+        if (error) return res.send({
+            status: 404,
+            error: error.details[0].message
+        });
+
+        pool.query("SELECT * FROM users WHERE email=$1", [req.body.email.toLowerCase()])
+        .then((user)=>{
+                bcrypt.compare(req.body.passWord, user.rows[0].password)
+                .then((isSame) =>{
+                    
+                    if(!isSame){
+                        return res.status(400).send({
+                            status: 400, 
+                            error: 'Email and Password didn\'t match'
+                        })
+                    };
+
+                    const payLoad = {
+                        id: user.rows[0].id, 
+                        email: user.rows[0].email,
+                        password: user.rows[0].password
+                    }; 
+
+                    jwt.sign(payLoad, dbKeys.secretWord, {expiresIn: 3600}, (error, token) =>{
+
+                        if(error) return res.status(400).send(error); 
+            
+                        return res.status(200).send({
+                            status: 200, 
+                            message: 'Successfuly logged in', 
+                            data: [{
+                                token: token, 
+                                user: payLoad
+
+                            }]
+
+                        })
+                    })
+                })
+                .catch(err =>{res.status(400).send({
+                    status: 400, 
+                    error: err
+                })})
+        })
+        .catch(err =>res.status(400).send(err));
+
+    }
+}
+
+
+const loginValidator = (user) => {
+    const schema = {
+        email: Joi.string().regex(/^\S+$/).email().required(),
+        passWord: Joi.string().regex(/^\S+$/).min(3).max(255).required(),
+
+    };
+
+    const options = {
+        language: {
+            key: '{{key}} ',
+            string: {
+                regex: {
+                    base: 'must not have empty spaces'
+                }
+            }
+        }
+    }
+
+    return Joi.validate(user, schema, options);
 }
 
 export default User;

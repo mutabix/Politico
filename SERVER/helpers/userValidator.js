@@ -8,7 +8,7 @@ const userValidator = (user) => {
         email: Joi.string().regex(/^\S+$/).email().required(),
         phoneNumber: Joi.number().required(),
         passPort: Joi.string().uri(),
-        passWord: Joi.string().regex(/^\S+$/).min(3).max(16).required(),
+        passWord: Joi.string().regex(/^\S+$/).min(3).max(255).required(),
         isAdmin: Joi.boolean().required()
 
     };
