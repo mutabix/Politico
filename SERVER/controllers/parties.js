@@ -1,10 +1,10 @@
 import Joi from 'joi';
 import parties from '../models/party';
+
 class Party {
-
+ 
     // Create a party
-    static createParty(req, res) {
-
+    static createParty(req, res){
         const {
             error
         } = partyValidator(req.body);
@@ -39,7 +39,8 @@ class Party {
 
 
     // Get one party
-    static getOneParty(req, res) {
+
+     static getOneParty(req, res){
         const party = parties.find(p => p.id === parseInt(req.params.id));
         if (!party) return res.send({
             status: 404,
@@ -113,7 +114,12 @@ function partyValidator(party) {
 
     const options = {
         language: {
-            key: '{{key}} '
+            key: '{{key}} ', 
+            string: {
+                regex: {
+                    base: 'must not have empty spaces'
+                }
+            }
         }
     }
 

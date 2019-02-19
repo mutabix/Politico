@@ -31,22 +31,33 @@
         </div>
         <form class="signup-form">
             <div class="input-fields">
+                <label for="first-name"> First name *
+                    <input type="text" id="firstName" required>
+                </label>
 
-                <label for="last-name"> Full name *
-                    <input type="text" id="fullName" required>
+                <label for="last-name">Last name *
+                    <input type="text" id="firstName" required>
                 </label>
-                <label for="date-birth">Date of birth *
-                    <input type="date" id="dateBirth" placeholder="dd/mm/yy" required>
+
+                <label for="middle-name"> Middle name
+                    <input type="text" id="firstName">
                 </label>
-                <label for="location">Current Location *
-                    <input type="text" id="location" required>
-                </label>
-                <label for="first-name">Email *
+
+                <label for="email">Email *
                     <input type="email" id="email" required>
                 </label>
+
+                <label for="location">Passport *
+                    <input type="text" id="location" required>
+                </label>
+                <label for="location">Phone number *
+                    <input type="number" id="location" required>
+                </label>
+
                 <label for="password">Password *
                     <input type="password" id="password" required>
                 </label>
+
                 <p id="wrongInput"></p>
             </div>
             <div class="auth-btn" onclick="formValidator()">Create Account</div>

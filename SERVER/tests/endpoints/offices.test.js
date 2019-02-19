@@ -15,7 +15,7 @@ describe('Offices', () => {
         it('Creates  a government office', (done) => {
 
             const office = {
-                type: 'muo',
+                type: 'state',
                 name: 'Secretary',
             };
 
@@ -24,7 +24,6 @@ describe('Offices', () => {
                 .post('/api/v1/offices')
                 .send(office)
                 .end((err, res) => {
-                    // console.log(res.body);
                     res.body.status.should.be.eql(201);
                     expect(office).is.an('object');
 
@@ -43,7 +42,6 @@ describe('Offices', () => {
                 .request(app)
                 .get('/api/v1/offices')
                 .end((err, res) => {
-                    // console.log(res.body);
                     res.body.should.have.property("status").eql(200);
                     res.body.should.have.property("data").that.is.an('array');
                     done();
@@ -58,7 +56,6 @@ describe('Offices', () => {
                 .request(app)
                 .get(`/api/v1/offices/${id}`)
                 .end((err, res) => {
-                    // console.log(res.body);
                     res.body.should.have.property("status").eql(200);
                     res.body.should.have.property("data").that.is.an('array');
 
@@ -73,7 +70,6 @@ describe('Offices', () => {
                 .get(`/api/v1/offices/${id}`)
                 .end((err, res) => {
                     if (!id) {
-                        // console.log(res.body);
                         res.body.should.have.property("status").eql(404);
                         res.body.should.have.property("error").that.is.a("string");
                     }
@@ -89,7 +85,6 @@ describe('Offices', () => {
                 .request(app)
                 .get('/*')
                 .end((err, res) => {
-                    // console.log(res.body.message);
                     expect(res.body.status).to.be.eql(404);
                     expect(res.body.message).to.be.eql('Wrong Url or HTTP Request!');
                     done();

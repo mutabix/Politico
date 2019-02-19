@@ -1,10 +1,9 @@
+import Joi from 'joi';
+import offices from '../models/office';
 
-import Joi from 'joi'; 
-import offices from '../models/office'; 
 
+class Office {
 
-class Office{
-    
     // Create office
     static createOffice(req, res) {
 
@@ -29,24 +28,24 @@ class Office{
         });
     }
 
-    static getAllOffices(req, res){
+    static getAllOffices(req, res) {
         return res.send({
-            status: 200, 
+            status: 200,
             data: offices
         });
     }
 
-    static getOneOffice(req, res){
-        const office = offices.find(of => of.id === parseInt(req.params.id)); 
-        if(!office){
+    static getOneOffice(req, res) {
+        const office = offices.find( of => of .id === parseInt(req.params.id));
+        if (!office) {
             return res.send({
-                status: 404, 
+                status: 404,
                 error: `Office with ID  ${req.params.id} is not found!`
             });
         }
 
         res.send({
-            status: 200, 
+            status: 200,
             data: [office]
         });
     }
@@ -55,13 +54,18 @@ class Office{
 
 function officeValidator(office) {
     const schema = {
-        type: Joi.string().regex(/^\S+$/).min(3).max(10).required(),
+        type: Joi.string().regex(/^\S+$/).valid(['federal', 'state', 'local government', 'legislative']).min(3).max(10).required(),
         name: Joi.string().regex(/^\S+$/).min(3).max(10).required(),
     };
 
     const options = {
         language: {
-            key: '{{key}} '
+            key: '{{key}} ',
+            string: {
+                regex: {
+                    base: 'must not have empty spaces'
+                }
+            }
         }
     }
 
@@ -70,4 +74,3 @@ function officeValidator(office) {
 
 
 export default Office;
-

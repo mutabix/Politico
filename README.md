@@ -33,47 +33,21 @@ You must have the following tools installed in order to run this project: <br/>
 
 ### A glance at API-endpoints 
 
-`GET /api/v1/parties`<br/>
-```
-{
-    "status": 200,
-    "data": [
-        {
-            "id": 1,
-            "name": "Labours Party",
-            "hqAddress": "London, UK",
-            "logoUrl": "https://en.wikipedia.org/wiki/Labour_Party_(UK)#/media/File:Logo_Labour_Party.svg"
-        },
-        {
-            "id": 2,
-            "name": " European Democrat Students",
-            "hqAddress": "Vienna, Austria",
-            "logoUrl": "https://en.wikipedia.org/wiki/European_Democrat_Students#/media/File:European_Democrat_Students_logo.jpg"
-        },
-        {
-            "id": 3,
-            "name": " Gabriela Women's Party",
-            "hqAddress": "Manila, Philipines",
-            "logoUrl": "https://en.wikipedia.org/wiki/Gabriela_Women%27s_Party#/media/File:GABRIELA_Women%27s_Party_(logo).jpg"
-        }
-    ]
-}
-```
+#### Endpoints to create, view, update, delete parties and government offices.
 
-`GET /api/v1/parties/:id` <br/>
-``` 
-{
-    "status": 200,
-    "data": [
-        {
-            "id": 1,
-            "name": "Labours Party",
-            "hqAddress": "London, UK",
-            "logoUrl": "https://en.wikipedia.org/wiki/Labour_Party_(UK)#/media/File:Logo_Labour_Party.svg"
-        }
-    ]
-}
-```
+| HTTP Verb     | Endpoint      | Role | Authorized Entity  |
+| ------------- | ------------- | ------ |          ----------- |
+| POST  | /api/v1/parties  |    Create a party             | Admin 
+| POST  | /api/v1/offices  |  Create a government office             | Admin 
+| GET   | /api/v1/parties  |   View a list of all parties   | Public
+| GET   | /api/v1/offices  |    View a list of all offices|Public
+| GET   | /api/v1/parties/:id |  Get a single party|Admin 
+| GET   | /api/v1/offices/:id |   Get a single office| Admin
+| PATCH | /api/v1/parties/:id | Edit a single party | Admin 
+| DELETE| /api/v1/parties/:id |   Delete a single party| Admin
+
+
+
 To get the code in this repo and customize it to your needs, do the following:<br/> 
 
 ```

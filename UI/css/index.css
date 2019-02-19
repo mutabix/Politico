@@ -3,7 +3,7 @@ body {
   margin: 0;
 }
 
-@media(min-width: 992px){
+@media(min-width: 992px) {
   @font-face {
     font-family: 'Source Sans Pro';
     font-style: normal;
@@ -34,7 +34,7 @@ body {
     height: 500px;
     background: rgba(3, 3, 3, .7);
     overflow: hidden;
-    border-radius:  14px;
+    border-radius: 14px;
     padding-bottom: 20px;
   }
 
@@ -72,7 +72,7 @@ body {
 
 
   .logo {
-    margin: 2.4% 25% 2% 25%;  
+    margin: 2.4% 25% 2% 25%;
   }
 
 
@@ -93,7 +93,8 @@ body {
     font-family: Ubuntu, sans-serif;
   }
 
-  .logo a, img {
+  .logo a,
+  img {
     color: black;
   }
 
@@ -105,26 +106,38 @@ body {
   }
 
 
-   span.logo-icon{
-    font-size: 16px ;
+  span.logo-icon {
+    font-size: 16px;
     left: 0;
     right: 0;
   }
 
   /* Create account page */
 
-div.auth-btn {
-  color: #fff;
-  cursor: pointer;
-  text-align: center;
+  div.auth-btn {
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
 
-}
+  }
 
-#wrongInput{
-  color:  rgb(233, 78, 78); 
-  font-size: 15px;
-  font-family: Ubuntu, sans-serif;
-}
+  #wrongInput {
+    color: rgb(233, 78, 78);
+    font-size: 15px;
+    font-family: Ubuntu, sans-serif;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type=number] {
+    -moz-appearance: textfield;
+    /* Firefox */
+  }
 
   input,
   .auth-btn {
@@ -145,14 +158,15 @@ div.auth-btn {
     margin-bottom: 20px;
   }
 
-  .input-fields label{
+  .input-fields label {
     color: #fff;
     margin-bottom: 2px;
     font-family: Ubuntu, sans-serif;
 
   }
 
-  .input-fields input{
+  .input-fields input {
+    height: 25px;
     margin-left: 10px;
     margin-bottom: 5px;
     border: none;
@@ -160,8 +174,8 @@ div.auth-btn {
     background: none;
     border-color: rgb(35, 61, 247);
     color: #fff;
-    font-weight: 300;
-    font-size: 18px;
+    font-weight: 300px;
+    font-size: 15px;
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     -o-transition: all .2s ease-in-out;
@@ -179,7 +193,7 @@ div.auth-btn {
     text-decoration: none;
   }
 
-  .auth-btn{
+  .auth-btn {
     margin: auto;
     background: black;
     border: 1px solid #333;
@@ -189,6 +203,7 @@ div.auth-btn {
     color: #fff;
     font-size: 15px;
   }
+
   .other-options {
     position: absolute;
     width: 100%;
@@ -235,13 +250,13 @@ div.auth-btn {
     text-align: center;
     font-size: 12px;
     font-weight: 100;
-    font-size: 0.8rem;  
+    font-size: 0.8rem;
 
   }
 
   /* Login form  */
 
-  .login-form input{
+  .login-form input {
     border: none;
     border-left: 5px solid;
     background: none;
@@ -270,7 +285,7 @@ div.auth-btn {
 
 /* Tablet screen size */
 
-@media(max-width: 900px){
+@media(max-width: 900px) {
   body {
     background: url('../assets/images/vote.png') no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -279,7 +294,7 @@ div.auth-btn {
     background-size: cover;
     margin: 0;
     padding: 0;
-  } 
+  }
 
   .index-screen {
     position: absolute;
@@ -292,10 +307,10 @@ div.auth-btn {
     height: 500px;
     background: rgba(3, 3, 3, .7);
     overflow: hidden;
-    border-radius:  14px;
+    border-radius: 14px;
     padding-bottom: 20px;
   }
-  
+
   .header {
     position: relative;
     margin: 0;
@@ -329,8 +344,8 @@ div.auth-btn {
 
   .logo {
     margin: 2.4% 25% 0 25%;
-   
-  
+
+
   }
 
 
@@ -349,11 +364,12 @@ div.auth-btn {
     -webkit-transform: rotate(-20deg);
     transform: rotate(-20deg);
     font-family: Ubuntu, sans-serif;
-   
+
 
   }
 
-  .logo a, img {
+  .logo a,
+  img {
     color: black;
   }
 
@@ -365,26 +381,26 @@ div.auth-btn {
   }
 
 
-   span.logo-icon{
-    font-size: 16px ;
+  span.logo-icon {
+    font-size: 16px;
     left: 0;
     right: 0;
   }
 
   /* Create account page */
 
-div.auth-btn {
-  color: #fff;
-  cursor: pointer;
-  text-align: center;
+  div.auth-btn {
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
 
-}
+  }
 
-#wrongInput{
-  color:  rgb(233, 78, 78); 
-  font-size: 15px;
-  font-family: Ubuntu, sans-serif;
-}
+  #wrongInput {
+    color: rgb(233, 78, 78);
+    font-size: 15px;
+    font-family: Ubuntu, sans-serif;
+  }
 
   input,
   .auth-btn {
@@ -405,14 +421,14 @@ div.auth-btn {
     margin-bottom: 20px;
   }
 
-  .input-fields label{
+  .input-fields label {
     color: #fff;
     margin-bottom: 2px;
     font-family: Ubuntu, sans-serif;
 
   }
 
-  .input-fields input{
+  .input-fields input {
     margin-left: 10px;
     margin-bottom: 5px;
     border: none;
@@ -439,7 +455,7 @@ div.auth-btn {
     text-decoration: none;
   }
 
-  .auth-btn{
+  .auth-btn {
     margin: auto;
     background: black;
     border: 1px solid #333;
@@ -449,6 +465,7 @@ div.auth-btn {
     color: #fff;
     font-size: 15px;
   }
+
   .other-options {
     position: absolute;
     width: 100%;
@@ -495,13 +512,13 @@ div.auth-btn {
     text-align: center;
     font-size: 12px;
     font-weight: 100;
-    font-size: 0.8rem;  
+    font-size: 0.8rem;
 
   }
 
   /* Login form  */
 
-  .login-form input{
+  .login-form input {
     border: none;
     border-left: 5px solid;
     background: none;
@@ -529,7 +546,7 @@ div.auth-btn {
 
 /* Smart-phone screen size */
 
-@media(max-width: 600px){
+@media(max-width: 600px) {
   body {
     background: url('../assets/images/vote.png') no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -551,7 +568,7 @@ div.auth-btn {
     height: 500px;
     background: rgba(3, 3, 3, .7);
     overflow: hidden;
-    border-radius:  14px;
+    border-radius: 14px;
     padding-bottom: 20px;
   }
 
@@ -588,7 +605,7 @@ div.auth-btn {
 
   .logo {
     margin: 2.4% 25% 0 25%;
-  
+
   }
 
 
@@ -607,11 +624,12 @@ div.auth-btn {
     -webkit-transform: rotate(-20deg);
     transform: rotate(-20deg);
     font-family: Ubuntu, sans-serif;
-   
+
 
   }
 
-  .logo a, img {
+  .logo a,
+  img {
     color: black;
   }
 
@@ -623,26 +641,26 @@ div.auth-btn {
   }
 
 
-   span.logo-icon{
-    font-size: 16px ;
+  span.logo-icon {
+    font-size: 16px;
     left: 0;
     right: 0;
   }
 
   /* Create account page */
 
-div.auth-btn {
-  color: #fff;
-  cursor: pointer;
-  text-align: center;
+  div.auth-btn {
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
 
-}
+  }
 
-#wrongInput{
-  color:  rgb(233, 78, 78); 
-  font-size: 15px;
-  font-family: Ubuntu, sans-serif;
-}
+  #wrongInput {
+    color: rgb(233, 78, 78);
+    font-size: 15px;
+    font-family: Ubuntu, sans-serif;
+  }
 
   input,
   .auth-btn {
@@ -663,14 +681,14 @@ div.auth-btn {
     margin-bottom: 20px;
   }
 
-  .input-fields label{
+  .input-fields label {
     color: #fff;
     margin-bottom: 2px;
     font-family: Ubuntu, sans-serif;
 
   }
 
-  .input-fields input{
+  .input-fields input {
     margin-left: 10px;
     margin-bottom: 5px;
     border: none;
@@ -697,7 +715,7 @@ div.auth-btn {
     text-decoration: none;
   }
 
-  .auth-btn{
+  .auth-btn {
     margin: auto;
     background: black;
     border: 1px solid #333;
@@ -707,6 +725,7 @@ div.auth-btn {
     color: #fff;
     font-size: 15px;
   }
+
   .other-options {
     position: absolute;
     width: 100%;
@@ -753,13 +772,13 @@ div.auth-btn {
     text-align: center;
     font-size: 12px;
     font-weight: 100;
-    font-size: 0.8rem;  
+    font-size: 0.8rem;
 
   }
 
   /* Login form  */
 
-  .login-form input{
+  .login-form input {
     border: none;
     border-left: 5px solid;
     background: none;
@@ -786,7 +805,7 @@ div.auth-btn {
 
 /* Extra small smart-phone screen */
 
-@media(max-width: 320px){
+@media(max-width: 320px) {
   body {
     background: url('../assets/images/vote.png') no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -808,7 +827,7 @@ div.auth-btn {
     height: 500px;
     background: rgba(3, 3, 3, .7);
     overflow: hidden;
-    border-radius:  14px;
+    border-radius: 14px;
     padding-bottom: 20px;
   }
 
@@ -845,7 +864,7 @@ div.auth-btn {
 
   .logo {
     margin: 2.4% 25% 0 25%;
-  
+
   }
 
 
@@ -864,11 +883,12 @@ div.auth-btn {
     -webkit-transform: rotate(-20deg);
     transform: rotate(-20deg);
     font-family: Ubuntu, sans-serif;
-   
+
 
   }
 
-  .logo a, img {
+  .logo a,
+  img {
     color: black;
   }
 
@@ -880,26 +900,26 @@ div.auth-btn {
   }
 
 
-   span.logo-icon{
-    font-size: 16px ;
+  span.logo-icon {
+    font-size: 16px;
     left: 0;
     right: 0;
   }
 
   /* Create account page */
 
-div.auth-btn {
-  color: #fff;
-  cursor: pointer;
-  text-align: center;
+  div.auth-btn {
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
 
-}
+  }
 
-#wrongInput{
-  color:  rgb(233, 78, 78); 
-  font-size: 15px;
-  font-family: Ubuntu, sans-serif;
-}
+  #wrongInput {
+    color: rgb(233, 78, 78);
+    font-size: 15px;
+    font-family: Ubuntu, sans-serif;
+  }
 
   input,
   .auth-btn {
@@ -920,14 +940,14 @@ div.auth-btn {
     margin-bottom: 20px;
   }
 
-  .input-fields label{
+  .input-fields label {
     color: #fff;
     margin-bottom: 2px;
     font-family: Ubuntu, sans-serif;
 
   }
 
-  .input-fields input{
+  .input-fields input {
     margin-left: 10px;
     margin-bottom: 5px;
     border: none;
@@ -954,7 +974,7 @@ div.auth-btn {
     text-decoration: none;
   }
 
-  .auth-btn{
+  .auth-btn {
     margin: auto;
     background: black;
     border: 1px solid #333;
@@ -964,6 +984,7 @@ div.auth-btn {
     color: #fff;
     font-size: 15px;
   }
+
   .other-options {
     position: absolute;
     width: 100%;
@@ -1010,13 +1031,13 @@ div.auth-btn {
     text-align: center;
     font-size: 12px;
     font-weight: 100;
-    font-size: 0.8rem;  
+    font-size: 0.8rem;
 
   }
 
   /* Login form  */
 
-  .login-form input{
+  .login-form input {
     border: none;
     border-left: 5px solid;
     background: none;
