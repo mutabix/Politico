@@ -1,7 +1,9 @@
-import Joi from 'joi';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import userValidator from '../../helpers/userValidator';
+import signUpValidator from '../../helpers/signUpValidator';
+import logInValidator from '../../helpers/logInValidator';
+import resetValidator from '../../helpers/resetValidator';
+
 import pool from '../../db/dbConnect';
 import dbKeys from '../../db/dbKeys';
 
@@ -12,7 +14,7 @@ class User {
     static signUp(req, res) {
         const {
             error
-        } = userValidator(req.body);
+        } = signUpValidator(req.body);
 
         if (error) return res.send({
             status: 404,
@@ -98,7 +100,7 @@ class User {
     static logIn(req, res){
         const {
             error
-        } = loginValidator(req.body);
+        } = logInValidator(req.body);
 
         if (error) return res.send({
             status: 404,
@@ -147,28 +149,27 @@ class User {
         .catch(err =>res.status(400).send(err));
 
     }
-}
 
+    static resetPassword(req, res){
 
-const loginValidator = (user) => {
-    const schema = {
-        email: Joi.string().regex(/^\S+$/).email().required(),
-        passWord: Joi.string().regex(/^\S+$/).min(3).max(255).required(),
+        const {
+            error
+        } = resetValidator(req.body);
 
-    };
+        if (error) return res.send({
+            status: 404,
+            error: error.details[0].message
+        });
 
-    const options = {
-        language: {
-            key: '{{key}} ',
-            string: {
-                regex: {
-                    base: 'must not have empty spaces'
-                }
-            }
-        }
+        pool.query("SELECT * FROM users WHERE email=$1", [req.body.email.toLowerCase()])
+        .then((user)=>{
+            
+        })
+        .catch()
+        
+
     }
-
-    return Joi.validate(user, schema, options);
 }
+
 
 export default User;
