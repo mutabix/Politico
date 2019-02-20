@@ -1,13 +1,16 @@
 import Joi from 'joi';
 
-const userValidator = (user) => {
+const signUpValidator = (user) => {
     const schema = {
         firstName: Joi.string().regex(/^\S+$/).min(3).max(20).required(),
         lastName: Joi.string().regex(/^\S+$/).min(3).max(20).required(),
         middleName: Joi.string().regex(/^\S+$/).min(3).max(20).required(),
         email: Joi.string().regex(/^\S+$/).email().required(),
         phoneNumber: Joi.number().required(),
-        passWord: Joi.string().regex(/^\S+$/).min(3).max(16).required()
+        passPort: Joi.string().uri(),
+        passWord: Joi.string().regex(/^\S+$/).min(3).max(255).required(),
+        isAdmin: Joi.boolean().required()
+
     };
 
     const options = {
@@ -24,4 +27,4 @@ const userValidator = (user) => {
     return Joi.validate(user, schema, options);
 }
 
-export default userValidator;
+export default signUpValidator;

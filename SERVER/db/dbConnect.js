@@ -7,5 +7,4 @@ const pool = new Pool({
 connectionString: dbKeys.dataBasePath,
 });
 
-
 export default pool;
