@@ -21,7 +21,6 @@ describe('Political Parties', () => {
             chai
                 .request(app)
                 .post('/api/v1/parties')
-                .send(party)
                 .end((err, res) => {
                     res.body.status.should.be.eql(201);
                     expect(party).is.an('object');

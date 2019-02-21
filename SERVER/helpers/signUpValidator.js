@@ -9,7 +9,7 @@ const signUpValidator = (user) => {
         phoneNumber: Joi.number().required(),
         passPort: Joi.string().uri(),
         passWord: Joi.string().regex(/^\S+$/).min(3).max(255).required(),
-        isAdmin: Joi.boolean().required()
+        // isAdmin: Joi.boolean().required()
 
     };
 

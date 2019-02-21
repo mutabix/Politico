@@ -22,7 +22,6 @@ describe('Offices', () => {
             chai
                 .request(app)
                 .post('/api/v1/offices')
-                .send(office)
                 .end((err, res) => {
                     res.body.status.should.be.eql(201);
                     expect(office).is.an('object');
