@@ -11,8 +11,6 @@ userRouter.use(json());
 userRouter.post('/auth/signup', userSignup);
 userRouter.post('/auth/login', userLogin);
 
-
-
 export default userRouter;
 
 

@@ -1,4 +1,4 @@
-import {Pool} from 'pg'; 
+import { Pool } from 'pg'; 
 import dbKeys from './dbKeys';
 
 
@@ -34,22 +34,22 @@ class DBSetter {
              
          })
          .catch((err)=>{
-             console.log(err)
+             console.log(err);
          });
     
          const parties = 
          `CREATE TABLE IF NOT EXISTS parties(
              id serial PRIMARY KEY, 
              name VARCHAR(50),
-             qhAddress VARCHAR(50), 
-             logoUrl VARCHAR(250)
+             qhaddress VARCHAR(50), 
+             logourl VARCHAR(250)
          )`; 
          this.pool.query(parties)
          .then((res)=>{
 
          })
          .catch((err)=>{
-            console.log(err)
+            console.log(err);
         });
 
          const offices = 
@@ -57,7 +57,6 @@ class DBSetter {
              id serial PRIMARY KEY, 
              type  VARCHAR, 
              name VARCHAR(50)
-
          )`;
 
          this.pool.query(offices)
@@ -65,7 +64,7 @@ class DBSetter {
 
          })
          .catch((err)=>{
-            console.log(err)
+            console.log(err);
         });
 
          const uservotes = 
@@ -80,7 +79,7 @@ class DBSetter {
 
             })
             .catch((err)=>{
-                console.log(err)
+                console.log(err);
             });
     };
 

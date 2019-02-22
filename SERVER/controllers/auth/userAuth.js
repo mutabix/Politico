@@ -1,4 +1,5 @@
-import {signUpValidator, tokenGenerator, validationMsgs, encryptPassword} from '../../helpers/signUpValidator'; 
+import {tokenGenerator, validationMsgs, encryptPassword} from '../../helpers/signUpValidator'; 
+import signUpValidator from '../../helpers/signUpValidator';
 import loginValidator from '../../helpers/logInValidator'; 
 
 import db from '../../db/dbIndex';
@@ -55,8 +56,7 @@ const User = {
 
 
             const giveToken = tokenGenerator({
-                user: rows[0].id,
-                username: rows[0].username,
+            
                 firstname: rows[0].firstname,
                 lastname: rows[0].lastname,
                 middlename: rows[0].middlename,

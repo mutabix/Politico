@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import jwt from 'jsonwebtoken'; 
+import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 
 const signUpValidator = (user) => {
@@ -26,7 +26,7 @@ const signUpValidator = (user) => {
     }
 
     return Joi.validate(user, schema, options);
-}
+};
 
 
 const validationMsgs = (res, error) => {
@@ -44,8 +44,15 @@ const encryptPassword = (password) => {
 
 const tokenGenerator = (userinfo) => {
     const giveToken = jwt.sign(userinfo,
-        'hdj%^&.)#', { expiresIn: '1d' });
+        'hdj%^&.)#', {
+            expiresIn: '1d'
+        });
     return giveToken;
-    }
+};
 
-export default {signUpValidator, encryptPassword, tokenGenerator, validationMsgs};
+export {
+    signUpValidator,
+    encryptPassword,
+    tokenGenerator,
+    validationMsgs
+};

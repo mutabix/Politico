@@ -14,7 +14,7 @@ officeRouter.use(json());
 officeRouter.post('/api/v1/offices',createOffice);
 officeRouter.get('/api/v1/offices', allOffices);
 officeRouter.get('/api/v1/offices/:id', getOneOffice);
-officeRouter.post('/api/v1/offices/:id/register', registerUser);
+// officeRouter.post('/api/v1/offices/:id/register', registerUser)
 
 
 export default officeRouter;

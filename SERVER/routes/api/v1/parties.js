@@ -3,7 +3,7 @@ import {
     Router,
     json
 } from 'express';
-import Party from '../../../controllers/parties';
+import Party from '../../../controllers/partiesCtrl';
 
 const {
     createParty,

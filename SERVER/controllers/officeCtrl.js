@@ -126,7 +126,7 @@ const Office = {
                 error: ' Oohhps! The candidate already exist',
             });
         }
-        const text = 'INSERT INTO candidates (office, party, candidate) VALUES ($1, $2, $3)';
+        const text = 'INSERT INTO candidates (office, party, candidate) VALUES($1, $2, $3)';
         const values = [
             req.params.id,
             req.body.party,
