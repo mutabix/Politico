@@ -60,7 +60,7 @@ const Party = {
                 status: 200,
                 data: rows,
             };
-            return res.send(getAllParties);
+            return res.send(allParties);
         } catch (error) {
             return res.status(400).send({
                 status: 400,
@@ -80,7 +80,7 @@ const Party = {
                     error: `Party with ID ${req.params.id} is not found!`,
                 });
             }
-            const sinnglParty = {
+            const singleParty = {
                 status: 200,
                 data: rows[0],
             };
