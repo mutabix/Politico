@@ -1,23 +1,24 @@
-import { Pool } from 'pg'; 
+import {Pool} from 'pg';
 import dbKeys from './dbKeys';
 
 
 class DBSetter {
     constructor(){
+
         this.pool = new Pool({
             connectionString: dbKeys.dataBasePath,
-            });
-            this.pool.on('connect', ()=>{
-                console.log('Connected to DB');
-            });
+        });
+        this.pool.on('connect', () => {
+            console.log('Connected to DB');
+        });
 
-            this.makeTables();
+        this.makeTables();
     }
 
-    makeTables(){
+    makeTables() {
 
-        const users = 
-         `CREATE TABLE IF NOT EXISTS users(
+        const users =
+            `CREATE TABLE IF NOT EXISTS users(
              id serial PRIMARY KEY, 
              firstname VARCHAR(50), 
              lastname  VARCHAR(50), 
@@ -29,56 +30,57 @@ class DBSetter {
              idadmin boolean 
          )`;
 
-         this.pool.query(users)
-         .then((res)=>{
-             
-         })
-         .catch((err)=>{
-             console.log(err);
-         });
-    
-         const parties = 
-         `CREATE TABLE IF NOT EXISTS parties(
+        this.pool.query(users)
+            .then((res) => {
+                console.log(res);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+
+        const parties =
+            `CREATE TABLE IF NOT EXISTS parties(
              id serial PRIMARY KEY, 
              name VARCHAR(50),
              qhaddress VARCHAR(50), 
              logourl VARCHAR(250)
-         )`; 
-         this.pool.query(parties)
-         .then((res)=>{
+         )`;
+        this.pool.query(parties)
+            .then((res) => {
+                console.log(res);
 
-         })
-         .catch((err)=>{
-            console.log(err);
-        });
+            })
+            .catch((err) => {
+                console.log(err);
+            });
 
-         const offices = 
-         `CREATE TABLE IF NOT EXISTS offices( 
+        const offices =
+            `CREATE TABLE IF NOT EXISTS offices( 
              id serial PRIMARY KEY, 
              type  VARCHAR, 
              name VARCHAR(50)
          )`;
 
-         this.pool.query(offices)
-         .then((res)=>{
+        this.pool.query(offices)
+            .then((res) => {
+                console.log(res);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
 
-         })
-         .catch((err)=>{
-            console.log(err);
-        });
-
-         const uservotes = 
-         `CREATE TABLE IF NOT EXISTS votes(
+        const uservotes =
+            `CREATE TABLE IF NOT EXISTS votes(
              id serial PRIMARY KEY,  
              createdon DATE, 
              createdby INT, 
              candidate INT
-            )`; 
-            this.pool.query(uservotes)
-            .then((res)=>{
-
+            )`;
+        this.pool.query(uservotes)
+            .then((res) => {
+                console.log(res);
             })
-            .catch((err)=>{
+            .catch((err) => {
                 console.log(err);
             });
     };

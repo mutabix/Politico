@@ -10,7 +10,7 @@ const Office = {
             error
         } = officeValidator(req.body);
 
-        if (error) return res.send({
+        if(error) return res.send({
             status: 404,
             error: error.details[0].message
         })
@@ -41,20 +41,20 @@ const Office = {
                 }],
             };
             return res.status(201).send(response);
-        } catch (error) {
+        }catch(error) {
             return res.status(400).send({ status: 400, error: error});
         }
     },
     async allOffices(req, res) {
         const officesFinder = 'SELECT * FROM offices ORDER BY id DESC';
-        try {
+        try{
             const { rows } = await db.query(officesFinder);
             const results = {
                 status: 200,
                 data: rows,
             };
             return res.send(results);
-        } catch (error) {
+        }catch(error) {
             return res.status(400).send({ status: 400, error });
         }
     },
@@ -62,7 +62,7 @@ const Office = {
         const text = 'SELECT * FROM offices WHERE id = $1';
         try {
             const { rows } = await db.query(text, [req.params.id]);
-            if (!rows[0]) {
+            if(!rows[0]) {
                 return res.status(404).send({
                     status: 404,
                     error: `Office with ID${req.params.id} is not found!`,
@@ -120,19 +120,19 @@ const Office = {
         ];
         const candidateResult = await db.query(candidateFinder, candidateValues);
         const candidateDetails = candidateResult.rows;
-        if (candidateDetails[0]) {
+        if(candidateDetails[0]) {
             return res.status(409).send({
                 status: 409,
                 error: ' Oohhps! The candidate already exist',
             });
-        }
+        };
         const text = 'INSERT INTO candidates (office, party, candidate) VALUES($1, $2, $3)';
         const values = [
             req.params.id,
             req.body.party,
             req.body.user,
         ];
-        try {
+        try{
             await db.query(text, values);
             const response = {
                 status: 201,
@@ -142,7 +142,7 @@ const Office = {
                 }],
             };
             return res.status(201).send(response);
-        } catch (errorMessage) {
+        }catch(errorMessage) {
             return res.status(400).send({ status: 400, error: errorMessage });
         }
     },
