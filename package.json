@@ -17,8 +17,10 @@
     "pg": "^7.8.0"
   },
   "devDependencies": {
-    "@babel/register": "^7.0.0",
     "@babel/polyfill": "^7.2.5",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "@babel/preset-stage-0": "^7.0.0",
+    "@babel/register": "^7.0.0",
     "chai": "^4.2.0",
     "chai-http": "^4.2.1",
     "coveralls": "^3.0.2",
@@ -35,7 +37,8 @@
     "npm": "6.4.1"
   },
   "scripts": {
-    "start": "babel-watch  ./SERVER/server.js",
+    "migrate": "node --require @babel/register ./SERVER/db/dbConnect.js",
+    "start": "npm run migrate && babel-watch  ./SERVER/server.js",
     "test": "NODE_ENV=test nyc --reporter=text --reporter=lcov mocha --timeout 1500 --require @babel/polyfill --require @babel/register SERVER/tests/**/*.test.js --exit",
     "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },

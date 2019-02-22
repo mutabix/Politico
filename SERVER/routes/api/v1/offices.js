@@ -1,7 +1,9 @@
 import express from 'express'; 
 import {Router, json} from 'express'; 
-import Office from '../../../controllers/offices';
+import Office from '../../../controllers/officeCtrl';
 import adminAuth from '../../../middleware/adminAuth';
+
+const{createOffice, allOffices, getOneOffice, registerUser} = Office;
 
 
 const officeRouter = express.Router(); 
@@ -9,10 +11,10 @@ const officeRouter = express.Router();
 officeRouter.use(json());
 
 
-officeRouter.get('/api/v1/offices', Office.getAllOffices);
-officeRouter.get('/api/v1/offices/:id', Office.getOneOffice);
-officeRouter.post('/api/v1/offices', Office.createOffice);
-officeRouter.post('/api/v1/offices/:id/register', Office.registerUser);
+officeRouter.post('/api/v1/offices',createOffice);
+officeRouter.get('/api/v1/offices', allOffices);
+officeRouter.get('/api/v1/offices/:id', getOneOffice);
+officeRouter.post('/api/v1/offices/:id/register', registerUser);
 
 
 export default officeRouter;

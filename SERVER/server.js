@@ -9,9 +9,9 @@ app.use(express.urlencoded({extended: false}));
 
 app.use(express.json()); 
 
-app.use(partyRouter);
+// app.use(partyRouter);
 app.use(officeRouter);
-app.use(userRouter);
+// app.use(userRouter);
 
 
 app.get('/', (req, res) =>{
