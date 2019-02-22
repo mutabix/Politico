@@ -2,7 +2,7 @@ import {Pool} from 'pg';
 import dbKeys from './dbKeys';
 
 const pool = new Pool({
-    connectionString: dbKeys.dataBasePath
+    connectionString: process.env.DATABASE_URL || dbKeys.dataBasePath
 });
 
   
