@@ -42,7 +42,7 @@ class DBSetter {
             `CREATE TABLE IF NOT EXISTS parties(
              id serial PRIMARY KEY, 
              name VARCHAR(50),
-             qhaddress VARCHAR(50), 
+             hqaddress VARCHAR(50), 
              logourl VARCHAR(250)
          )`;
         this.pool.query(parties)
