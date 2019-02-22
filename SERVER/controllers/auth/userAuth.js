@@ -1,17 +1,12 @@
-import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
-import signUpValidator from '../../helpers/signUpValidator';
-import logInValidator from '../../helpers/logInValidator';
-import resetValidator from '../../helpers/resetValidator';
+import {signUpValidator, tokenGenerator, validationMsgs, encryptPassword} from '../../helpers/signUpValidator'; 
+import loginValidator from '../../helpers/logInValidator'; 
 
-import pool from '../../db/dbConnect';
-import dbKeys from '../../db/dbKeys';
+import db from '../../db/dbIndex';
 
-
-
-class User {
-
-    static signUp(req, res) {
+const User = {
+    async userSignup(req, res) {
+        // Validate Data
+        
         const {
             error
         } = signUpValidator(req.body);
@@ -19,157 +14,112 @@ class User {
         if (error) return res.send({
             status: 404,
             error: error.details[0].message
-        });
-
-        pool.query("SELECT * FROM users WHERE email=$1", [req.body.email.toLowerCase()])
-            .then((email) => {
-                if (email.rows.length === 0) {
-                    // Create a new user 
-                    const newUser = {
-                        firstName: req.body.firstName.toLowerCase(),
-                        lastName: req.body.lastName.toLowerCase(),
-                        middleName: req.body.middleName.toLowerCase(),
-                        phoneNumber: req.body.phoneNumber,
-                        email: req.body.email,
-                        passPort: req.body.passPort,
-                        passWord: req.body.passWord,
-                        isAdmin: (req.body.isAdmin) ? req.body.isAdmin : false
-                    };
-
-                    // Encrypting the password 
-
-                    bcrypt.genSalt(12, (error, salt) => {
-                        if (error) res.status(400).send(error);
-                        bcrypt.hash(newUser.passWord, salt, (hashError, hash) => {
-                            if (hashError) res.status(400).send({
-                                error: 'Check your password and try again!'
-                            });
-                            newUser.passWord = hash;
-
-                            // Save the password in the DB 
-
-                            pool.query("INSERT INTO users(firstname,lastname,middlename,phonenumber,passport,password,email,isadmin) VALUES($1,$2,$3,$4,$5,$6,$7,$8) RETURNING*",
-                                    [
-                                        newUser.firstName,
-                                        newUser.lastName,
-                                        newUser.middleName,
-                                        newUser.phoneNumber,
-                                        newUser.passPort,
-                                        newUser.passWord,
-                                        newUser.email,
-                                        newUser.isAdmin
-                                    ])
-                                .then((savedUser) => {
-                                    if (savedUser) {
-                                        const payLoad = {
-                                            id: savedUser.rows[0].id,
-                                            firstName: savedUser.rows[0].firstName,
-                                            lastName: savedUser.rows[0].lastName,
-                                            email: savedUser.rows[0].email
-                                        };
-                                        jwt.sign(payLoad, dbKeys.secretWord, {
-                                            expiresIn: 3600
-                                        }, (err, token) => {
-                                            return res.status(201).send({
-                                                status: 201,
-                                                message: 'Account Successfully Created!',
-                                                data: [{
-                                                    token: token,
-                                                    user: savedUser.rows[0]
-                                                }]
-                                            });
-
-                                        });
-                                    }
-                                })
-                                .catch(err => res.status(400).send(err));
-                        });
-                    });
-
-                } else {
-                    return res.status(400).send({
-                        status: 400,
-                        message: 'Email address already taken!'
-                    })
-                }
-            })
-    }
+        })
 
 
+        const nameFinder = 'SELECT * FROM users WHERE username=$1';
+        const userResult = await db.query(nameFinder, [req.body.username]);
+        const userData = userResult.rows;
+        if (userData[0]) {
+            return res.status(400).send({
+                status: 400,
+                error: 'Username already taken',
+            });
+        }
 
-    static logIn(req, res){
+        const emailFinder = 'SELECT * FROM users WHERE email=$1';
+        const emailResult = await db.query(emailFinder, [req.body.email]);
+        const emailData = emailResult.rows;
+        if (emailData[0]) {
+            return res.status(400).send({
+                status: 400,
+                error: 'Email already taken',
+            });
+        }
+
+        const encryptedPassword = encryptPassword(req.body.password);
+
+        const text = 'INSERT INTO users (firstname, lastname, middlename,phonenumber,email,passport,password,isadmin) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING*';
+        const values = [
+            req.body.firstname,
+            req.body.lastname,
+            req.body.middlename,
+            req.body.phonenumber,
+            req.body.email,
+            req.body.passport,
+            encryptedPassword,
+            req.body.isadmin,
+        ];
+        try {
+            const { rows } = await db.query(text, values);
+
+
+            const giveToken = tokenGenerator({
+                user: rows[0].id,
+                username: rows[0].username,
+                firstname: rows[0].firstname,
+                lastname: rows[0].lastname,
+                middlename: rows[0].middlename,
+                email: rows[0].email,
+                phonenumber: rows[0].phonenumber,
+    
+            });
+
+            const response = {
+                status: 201,
+                token: giveToken,
+                user: [{ rows }],
+            };
+            return res.status(201).send(response);
+        } catch (errorMessage) {
+            return res.status(400).send({ status: 400, error: errorMessage });
+        }
+    },
+    async userLogin(req, res) {
+        // Validate Data
+       
         const {
             error
-        } = logInValidator(req.body);
+        } = loginValidator(req.body);
 
         if (error) return res.send({
             status: 404,
             error: error.details[0].message
-        });
-
-        pool.query("SELECT * FROM users WHERE email=$1", [req.body.email.toLowerCase()])
-        .then((user)=>{
-                bcrypt.compare(req.body.passWord, user.rows[0].password)
-                .then((isSame) =>{
-                    
-                    if(!isSame){
-                        return res.status(400).send({
-                            status: 400, 
-                            error: 'Email and Password didn\'t match'
-                        })
-                    };
-
-                    const payLoad = {
-                        id: user.rows[0].id, 
-                        email: user.rows[0].email,
-                        password: user.rows[0].password
-                    }; 
-
-                    jwt.sign(payLoad, dbKeys.secretWord, {expiresIn: 3600}, (error, token) =>{
-
-                        if(error) return res.status(400).send(error); 
-            
-                        return res.status(200).send({
-                            status: 200, 
-                            message: 'Successfuly logged in', 
-                            data: [{
-                                token: token, 
-                                user: payLoad
-
-                            }]
-
-                        })
-                    })
-                })
-                .catch(err =>{res.status(400).send({
-                    status: 400, 
-                    error: err
-                })})
         })
-        .catch(err =>res.status(400).send(err));
 
-    }
-
-    static resetPassword(req, res){
-
-        const {
-            error
-        } = resetValidator(req.body);
-
-        if (error) return res.send({
-            status: 404,
-            error: error.details[0].message
-        });
-
-        pool.query("SELECT * FROM users WHERE email=$1", [req.body.email.toLowerCase()])
-        .then((user)=>{
-            
-        })
-        .catch()
+        const usersFinder = 'SELECT * FROM users WHERE email = $1 LIMIT 1';
+        try {
+            const { rows } = await db.query(usersFinder, [req.body.username]);
+            if (!rows[0]) {
+                return res.status(401).send({
+                    status: 401,
+                    error: 'Invalid email or password',
+                });
+            }
+            if (!comparePassword(rows[0].password, req.body.password)) {
+                return res.status(401).send({
+                    status: 401,
+                    error: 'Invalid email or password',
+                });
+            }
+            const giveToken = tokenGenerator({
         
+                firstname: rows[0].firstname,
+                lastname: rows[0].lastname,
+                middlename: rows[0].othername,
+                email: rows[0].email,
+                phonenumber: rows[0].phonenumber,
+            });
 
-    }
-}
-
+            const response = {
+                status: 201,
+                data: [{ giveToken }],
+            };
+            return res.send(response);
+        } catch (errorMessage) {
+            return res.status(400).send({ status: 400, error: errorMessage });
+        }
+    },
+};
 
 export default User;
