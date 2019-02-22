@@ -6,16 +6,8 @@ import db from '../../db/dbIndex';
 
 const User = {
     async userSignup(req, res) {
-        // Validate Data
         
-        // const {
-        //     error
-        // } = signUpValidator(req.body);
-
-        // if (error) return res.send({
-        //     status: 404,
-        //     error: error.details[0].message
-        // })
+        
         const nameFinder = 'SELECT * FROM users WHERE middlename=$1';
         const userResult = await db.query(nameFinder, [req.body.middlename]);
         const userData = userResult.rows;
