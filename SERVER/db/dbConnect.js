@@ -6,7 +6,7 @@ class DBSetter {
     constructor(){
 
         this.pool = new Pool({
-            connectionString: dbKeys.dataBasePath,
+            connectionString: process.env.DATABASE_URL || dbKeys.dataBasePath
         });
         this.pool.on('connect', () => {
             console.log('Connected to DB');
