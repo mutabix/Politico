@@ -1,4 +1,5 @@
 import partyValidator from '../helpers/partyValidator';
+import db from '../db/dbIndex';
 
 
 const Party = {
