@@ -3,8 +3,8 @@ import Joi from 'joi';
 function partyValidator(party) {
     const schema = {
         name: Joi.string().regex(/^\S+$/).min(3).max(50).required(),
-        hqAddress: Joi.string().regex(/^\S+$/).min(3).max(50).required(),
-        logoUrl: Joi.string().uri().max(255).required()
+        hqaddress: Joi.string().regex(/^\S+$/).min(3).max(50).required(),
+        logourl: Joi.string().uri().max(255).required()
     };
 
     const options = {
