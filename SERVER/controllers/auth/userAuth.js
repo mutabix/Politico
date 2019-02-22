@@ -8,23 +8,21 @@ const User = {
     async userSignup(req, res) {
         // Validate Data
         
-        const {
-            error
-        } = signUpValidator(req.body);
+        // const {
+        //     error
+        // } = signUpValidator(req.body);
 
-        if (error) return res.send({
-            status: 404,
-            error: error.details[0].message
-        })
-
-
-        const nameFinder = 'SELECT * FROM users WHERE username=$1';
-        const userResult = await db.query(nameFinder, [req.body.username]);
+        // if (error) return res.send({
+        //     status: 404,
+        //     error: error.details[0].message
+        // })
+        const nameFinder = 'SELECT * FROM users WHERE middlename=$1';
+        const userResult = await db.query(nameFinder, [req.body.middlename]);
         const userData = userResult.rows;
         if (userData[0]) {
             return res.status(400).send({
                 status: 400,
-                error: 'Username already taken',
+                error: 'User exists',
             });
         }
 

@@ -4,13 +4,13 @@ import bcrypt from 'bcryptjs';
 
 const signUpValidator = (user) => {
     const schema = {
-        firstName: Joi.string().regex(/^\S+$/).min(3).max(20).required(),
-        lastName: Joi.string().regex(/^\S+$/).min(3).max(20).required(),
-        middleName: Joi.string().regex(/^\S+$/).min(3).max(20).required(),
+        firstname: Joi.string().regex(/^\S+$/).min(3).max(20).required(),
+        lastname: Joi.string().regex(/^\S+$/).min(3).max(20).required(),
+        middlename: Joi.string().regex(/^\S+$/).min(3).max(20).required(),
         email: Joi.string().regex(/^\S+$/).email().required(),
-        phoneNumber: Joi.number().required(),
-        passPort: Joi.string().uri(),
-        passWord: Joi.string().regex(/^\S+$/).min(3).max(255).required(),
+        phonenumber: Joi.number().required(),
+        passport: Joi.string().uri(),
+        password: Joi.string().regex(/^\S+$/).min(3).max(255).required(),
 
     };
 
@@ -36,6 +36,7 @@ const validationMsgs = (res, error) => {
         error: errorMessage
     });
 };
+
 const encryptPassword = (password) => {
     const encryptedPassword = bcrypt.hashSync(password, bcrypt.genSaltSync(8));
     return encryptedPassword;

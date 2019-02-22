@@ -4,7 +4,7 @@ import bcrypt from 'bcryptjs';
 const loginValidator = (user) => {
     const schema = {
         email: Joi.string().regex(/^\S+$/).email().required(),
-        passWord: Joi.string().regex(/^\S+$/).min(3).max(255).required(),
+        password: Joi.string().regex(/^\S+$/).min(3).max(255).required(),
 
     };
 

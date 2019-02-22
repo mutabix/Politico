@@ -15,7 +15,7 @@ const Office = {
             error: error.details[0].message
         })
 
-        const officeFinder = 'SELECT * FROM offices WHERE name=$1, id=$2';
+        const officeFinder = 'SELECT * FROM offices WHERE name=$1';
         const result = await db.query(officeFinder, [req.body.name]);
         const officeDetails = result.rows;
         if (officeDetails[0]) {
@@ -24,9 +24,8 @@ const Office = {
                 error: 'Political office name already taken',
             });
         }
-        const text = 'INSERT INTO offices (type, id,  name) VALUES ($1, $2,$2)';
+        const text = 'INSERT INTO offices (type,name) VALUES($1,$2)';
         const values = [
-            req.body.id,
             req.body.type,
             req.body.name,
         ];
@@ -41,7 +40,7 @@ const Office = {
                 }],
             };
             return res.status(201).send(response);
-        }catch(error) {
+        }catch(error) { 
             return res.status(400).send({ status: 400, error: error});
         }
     },

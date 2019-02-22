@@ -27,12 +27,12 @@ class DBSetter {
              email VARCHAR(250), 
              passport VARCHAR(250), 
              password VARCHAR(250), 
-             idadmin boolean 
+             isadmin boolean 
          )`;
 
         this.pool.query(users)
             .then((res) => {
-                console.log(res);
+
             })
             .catch((err) => {
                 console.log(err);
@@ -47,7 +47,6 @@ class DBSetter {
          )`;
         this.pool.query(parties)
             .then((res) => {
-                console.log(res);
 
             })
             .catch((err) => {
@@ -57,13 +56,13 @@ class DBSetter {
         const offices =
             `CREATE TABLE IF NOT EXISTS offices( 
              id serial PRIMARY KEY, 
-             type  VARCHAR, 
+             type  VARCHAR(50), 
              name VARCHAR(50)
          )`;
 
         this.pool.query(offices)
             .then((res) => {
-                console.log(res);
+
             })
             .catch((err) => {
                 console.log(err);
@@ -78,7 +77,7 @@ class DBSetter {
             )`;
         this.pool.query(uservotes)
             .then((res) => {
-                console.log(res);
+
             })
             .catch((err) => {
                 console.log(err);
