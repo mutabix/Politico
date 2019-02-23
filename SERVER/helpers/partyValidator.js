@@ -3,7 +3,7 @@ import Joi from 'joi';
 function partyValidator(party) {
     const schema = {
         name: Joi.string().regex(/^\S+$/).min(3).max(50).required(),
-        hqaddress: Joi.string().regex(/^\S+$/).min(3).max(50).required(),
+        qhaddress: Joi.string().regex(/^\S+$/).min(3).max(50).required(),
         logourl: Joi.string().uri().max(255).required()
     };
 

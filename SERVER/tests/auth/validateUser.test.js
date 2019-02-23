@@ -10,11 +10,14 @@ describe('User Authentication', () => {
     describe('Signup a new user', () => {
         it('Should sign up a new user', (done) => {
             const user = {
-                fullName: 'moiserwibutso',
-                birthDate: '01/03/1995',
-                currentLocation: 'Kigali',
+                firstname: 'moise',
+                lastname: 'rwibutso', 
+                middlename: 'moy', 
+                phonenumber: '087889977',
                 email: 'moise.rwibu@gmail.com',
-                password: '5555555'
+                passport:'https://images-na.ssl-images-amazon.com/images/I/616ng1eIi1L._SX466_.jpg', 
+                password: '5555555',
+                isadmin: true,
             };
             chai
                 .request(app)

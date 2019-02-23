@@ -1,6 +1,7 @@
 import {tokenGenerator, validationMsgs, encryptPassword} from '../../helpers/signUpValidator'; 
 import signUpValidator from '../../helpers/signUpValidator';
 import loginValidator from '../../helpers/logInValidator'; 
+import comparePassword from '../../helpers/logInValidator';
 
 import db from '../../db/dbIndex';
 
@@ -68,30 +69,30 @@ const User = {
     async userLogin(req, res) {
         // Validate Data
        
-        const {
-            error
-        } = loginValidator(req.body);
+        // const {
+        //     error
+        // } = loginValidator(req.body);
 
-        if (error) return res.send({
-            status: 404,
-            error: error.details[0].message
-        })
+        // if (error) return res.send({
+        //     status: 404,
+        //     error: error.details[0].message
+        // })
 
-        const usersFinder = 'SELECT * FROM users WHERE email = $1 LIMIT 1';
+        const usersFinder = 'SELECT * FROM users WHERE email=$1 LIMIT 1';
         try {
-            const { rows } = await db.query(usersFinder, [req.body.username]);
+            const { rows } = await db.query(usersFinder, [req.body.email]);
             if (!rows[0]) {
-                return res.status(401).send({
+                return res.status(200).send({
                     status: 401,
-                    error: 'Invalid email or password',
+                    error: 'Invalid email or Password'
                 });
-            }
+            } 
             if (!comparePassword(rows[0].password, req.body.password)) {
                 return res.status(401).send({
                     status: 401,
                     error: 'Invalid email or password',
                 });
-            }
+            } 
             const giveToken = tokenGenerator({
         
                 firstname: rows[0].firstname,
@@ -106,8 +107,8 @@ const User = {
                 data: [{ giveToken }],
             };
             return res.send(response);
-        } catch (errorMessage) {
-            return res.status(400).send({ status: 400, error: errorMessage });
+        } catch(err ) {
+            res.status(400).send(err);
         }
     },
 };
