@@ -7,7 +7,13 @@ node_js:
 cache: 
   directories: 
     - "node_modules" 
+addons: 
+  postgresql: "9.5.15" 
 
+services: 
+  - postgresql 
+before_install: 
+  - psql -c "CREATE  DATABASE politico_db;" -U postgres
 before_script:
     - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
     - chmod +x ./cc-test-reporter
