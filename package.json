@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "description": "Politico is an elections app which will help electoral bodies, candidates and voters to prepare and execute successful elections.",
   "main": "server.js",
+  "scripts": {
+    "migrate": "node --require @babel/register ./SERVER/db/dbConnect.js",
+    "start": "npm run migrate && babel-watch  ./SERVER/server.js",
+    "test": " npm run migrate && NODE_ENV=test nyc --reporter=text --reporter=lcov mocha --timeout 1500 --require @babel/polyfill --require @babel/register SERVER/tests/**/*.test.js --exit",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+  },
   "dependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.0.0",
@@ -35,12 +41,6 @@
   "engines": {
     "node": "10.15.0",
     "npm": "6.4.1"
-  },
-  "scripts": {
-    "migrate": "node --require @babel/register ./SERVER/db/dbConnect.js",
-    "start": "npm run migrate && babel-watch  ./SERVER/server.js",
-    "test": " npm run migrate && NODE_ENV=test nyc --reporter=text --reporter=lcov mocha --timeout 1500 --require @babel/polyfill --require @babel/register SERVER/tests/**/*.test.js --exit",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",

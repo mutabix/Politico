@@ -5,7 +5,7 @@
 
 # Politico
 
-Politico is an elections app which will help electoral bodies, candidates and voters to prepare and execute successful elections.
+[Politico](https://moise1.github.io/Politico/UI/) is an elections app which will help electoral bodies, candidates and voters to prepare and execute successful elections.
 
 ## Get Started 
 
