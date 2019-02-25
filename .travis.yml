@@ -31,7 +31,7 @@ after_script:
     - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 
 script:
-    - test:db:migrate
+    - npm run test:db:migrate
     - npm test
 
 after_success:
