@@ -1,6 +1,8 @@
 
 language: node_js 
 
+dist: trusty
+
 node_js: 
   - "10.15.0" 
 
@@ -19,7 +21,7 @@ before_script:
     - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
     - chmod +x ./cc-test-reporter
     - ./cc-test-reporter before-build
-    - psql -c 'create database politico_db;' -U postgres
+    - psql -c 'create database politico_db_test;' -U postgres
 
 after_script:
     
