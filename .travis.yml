@@ -21,8 +21,8 @@ before_script:
     - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
     - chmod +x ./cc-test-reporter
     - ./cc-test-reporter before-build
-    - psql -c 'create database politico_db_test;' -U postgres
-    - psql -c 'create user postgres with password "mojaf123";' -U postgres
+    - psql -c 'create database if not exists politico_db;' -U postgres
+    - psql -c "CREATE USER postgres WITH PASSWORD 'mojaf123'"; -U postgres
 
 
 
@@ -31,7 +31,7 @@ after_script:
     - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 
 script:
-    - test-db-migrate
+    - test:db:migrate
     - npm test
 
 after_success:
