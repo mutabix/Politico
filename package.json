@@ -4,9 +4,10 @@
   "description": "Politico is an elections app which will help electoral bodies, candidates and voters to prepare and execute successful elections.",
   "main": "server.js",
   "scripts": {
-    "migrate": "node --require @babel/register ./SERVER/db/dbConnect.js",
-    "start": "npm run migrate && babel-watch  ./SERVER/server.js",
-    "test": " npm run migrate && NODE_ENV=test nyc --reporter=text --reporter=lcov mocha --timeout 1500 --require @babel/polyfill --require @babel/register SERVER/tests/**/*.test.js --exit",
+    "db-migrate": "node --require @babel/register ./SERVER/db/dbConnect.js --exit",
+    "start": "npm run db-migrate && babel-watch  ./SERVER/server.js",
+    "test": "NODE_ENV=test nyc --reporter=text --reporter=lcov mocha --timeout 1500 --require @babel/polyfill --require @babel/register SERVER/tests/**/*.test.js --exit",
+    "test-db-migrate": "NODE_ENV=test node --require @babel/register ./SERVER/db/dbConnect.js --exit",
     "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "dependencies": {
