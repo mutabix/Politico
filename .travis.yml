@@ -19,7 +19,7 @@ before_script:
     - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
     - chmod +x ./cc-test-reporter
     - ./cc-test-reporter before-build
-    # - psql -c "CREATE USER moise WITH PASSWORD 'mojaf123';" -U postgres
+    - psql -c 'create database politico_db;' -U postgres
 
 after_script:
     
